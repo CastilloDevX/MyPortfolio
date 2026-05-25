@@ -44,6 +44,8 @@ import saludPlusPreview from "../assets/images/previews/SaludPlus.png"
 import beesMathPreview from "../assets/images/previews/BeesMath.png"
 import eduCampPreview from "../assets/images/previews/EduCamp.png"
 import quickCoinsPreview from "../assets/images/previews/QuickCoins.png";
+import canutoPreview from "../assets/images/previews/Canuto.png";
+import airBreyPreview from "../assets/images/previews/AirBrey.png";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
@@ -179,6 +181,54 @@ export const services = [
 ];
 
 export const featuredProjects = [
+  {
+    id: "desayunos-canuto",
+    sortDate: "2026-05-24",
+    createdAt: "Mayo 2026",
+    title: "Desayunos Canuto",
+    category: "Landing page para negocio local",
+    status: "Próximamente",
+    statusType: "prototype",
+    accent: "amber",
+    previewAccent: "#f59e0b",
+    previewAccentAlt: "#ef4444",
+    previewImage: canutoPreview,
+    previewSurface:
+      "radial-gradient(circle at 16% 18%, rgba(245,158,11,0.28), transparent 24%), radial-gradient(circle at 82% 22%, rgba(239,68,68,0.18), transparent 22%), linear-gradient(135deg, rgba(43,24,10,0.96), rgba(73,37,18,0.88) 52%, rgba(16,10,8,0.98))",
+    previewLabel: "Preview de Desayunos Canuto",
+    previewNote:
+      "Captura preparada para presentar la landing cuando el sitio quede listo para publicarse.",
+    summary:
+      "Desayunos Canuto es una landing page en desarrollo para presentar la oferta de desayunos, reforzar la identidad visual del negocio y facilitar que nuevos clientes encuentren informacion clara sobre el servicio. El proyecto esta pensado como una experiencia directa, visual y optimizada para conversion.",
+    stack: ["React", "Vite", "Landing page", "Negocio local"],
+    repositories: [],
+    previews: [],
+  },
+  {
+    id: "air-brey-services",
+    sortDate: "2026-05-23",
+    createdAt: "Mayo 2026",
+    title: "Air Brey Services",
+    category: "Landing page para servicios HVAC",
+    status: "Desplegado",
+    statusType: "live",
+    accent: "cyan",
+    previewAccent: "#63dbe8",
+    previewAccentAlt: "#2f46ff",
+    previewImage: airBreyPreview,
+    previewSurface:
+      "radial-gradient(circle at 18% 18%, rgba(99,219,232,0.3), transparent 24%), radial-gradient(circle at 80% 20%, rgba(47,70,255,0.22), transparent 24%), linear-gradient(135deg, rgba(6,20,34,0.96), rgba(8,18,56,0.9) 54%, rgba(5,8,18,0.98))",
+    previewLabel: "Preview de Air Brey Services",
+    previewNote:
+      "Captura del hero principal con la propuesta de servicios HVAC y llamada a solicitar cotizacion.",
+    summary:
+      "Air Brey Services es una landing page para una empresa de aire acondicionado y servicios HVAC en Broward County. La experiencia prioriza confianza, claridad comercial y una llamada a la accion visible para solicitar estimaciones, con una direccion visual tecnica y profesional alineada al sector.",
+    stack: ["HTML", "CSS", "JavaScript", "Landing page"],
+    repositories: [],
+    previews: [
+      projectLink("Sitio en vivo", "https://airbreyservices.com/"),
+    ],
+  },
   {
     id: "quick-coins",
     sortDate: "2026-03-27",
