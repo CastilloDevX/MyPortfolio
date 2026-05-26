@@ -573,6 +573,12 @@ export const clients = [
     testimonial:
       "Trabajar con Jose Manuel en mi juego de Roblox ha sido una experiencia impecable. Destaco por encima de todo su sinceridad y atención; siempre estuvo disponible para resolver cualquier duda. Manteníamos llamadas constantes para revisar avances, lo que me dio mucha tranquilidad. Además, su responsabilidad es total: si los estudios le requerían tiempo, me avisaba con días de antelación. En resumen, un profesional educado, responsable y altamente comprometido.",
   },
+  {
+    clientAvatar: null,
+    clientName: "Breiler Alfredo González",
+    clientPosition: "Air Brey Services",
+    testimonial:"Quiero expresar mi más sincero agradecimiento a José Manuel por el excelente trabajo realizado en mi página web. Su atención, profesionalismo y dedicación hicieron que todo el proceso fuera mucho más fácil y eficiente. Siempre estuvo dispuesto a ayudar, resolver dudas y cuidar cada detalle para lograr un resultado de alta calidad, gracias por a su compromiso y por brindar un servicio tan profesional. Sin duda, recomendamos su trabajo y espero seguir colaborando con él en futuros proyectos."  
+  }
 ];
 
 export const contactContent = {
