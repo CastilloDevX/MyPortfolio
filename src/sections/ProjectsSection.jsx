@@ -1,10 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
-import ProjectSpotlightCard from "../components/cards/ProjectSpotlightCard.jsx";
-import GlowOrb from "../components/common/GlowOrb.jsx";
-import SectionTitle from "../components/common/SectionTitle.jsx";
 import PageSection from "../components/layout/PageSection.jsx";
-import ScrollReveal from "../components/motion/ScrollReveal.jsx";
+import SolidIcon from "../components/ui/SolidIcon.jsx";
 import { featuredProjects } from "../data/portfolio.js";
+import SectionTitle from "../components/common/SectionTitle.jsx";
 
 export default function ProjectsSection() {
   const projects = useMemo(
@@ -14,181 +12,320 @@ export default function ProjectsSection() {
       ),
     []
   );
-  const [activeIndex, setActiveIndex] = useState(0);
-  const touchStartX = useRef(null);
+  const sectionRef = useRef(null);
+  const [journeyIndex, setJourneyIndex] = useState(0);
+  const [pinState, setPinState] = useState("before");
+  const [isRailCollapsed, setIsRailCollapsed] = useState(false);
 
   useEffect(() => {
     if (!projects.length) {
       return undefined;
     }
 
-    const handleKeyDown = (event) => {
-      if (event.key === "ArrowRight") {
-        setActiveIndex((current) => (current + 1) % projects.length);
+    let frame = 0;
+
+    const updateJourney = () => {
+      frame = 0;
+
+      const section = sectionRef.current;
+      if (!section) {
+        return;
       }
 
-      if (event.key === "ArrowLeft") {
-        setActiveIndex((current) => (current - 1 + projects.length) % projects.length);
+      const rect = section.getBoundingClientRect();
+      const travel = Math.max(1, rect.height - window.innerHeight);
+      const progress = clamp(-rect.top / travel, 0, 1);
+
+      if (rect.top > 0) {
+        setPinState("before");
+      } else if (rect.bottom < window.innerHeight) {
+        setPinState("after");
+      } else {
+        setPinState("fixed");
+      }
+
+      setJourneyIndex(progress * (projects.length - 1));
+    };
+
+    const requestUpdate = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(updateJourney);
       }
     };
 
-    window.addEventListener("keydown", handleKeyDown);
+    updateJourney();
+    window.addEventListener("scroll", requestUpdate, { passive: true });
+    window.addEventListener("resize", requestUpdate);
 
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("scroll", requestUpdate);
+      window.removeEventListener("resize", requestUpdate);
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
   }, [projects.length]);
 
   if (!projects.length) {
     return null;
   }
 
+  const activeIndex = Math.round(journeyIndex);
   const activeProject = projects[activeIndex];
+  const travelHeight = `${Math.max(420, projects.length * 88)}vh`;
 
-  const next = () => setActiveIndex((current) => (current + 1) % projects.length);
-  const prev = () =>
-    setActiveIndex((current) => (current - 1 + projects.length) % projects.length);
+  const scrollToProject = (index) => {
+    const section = sectionRef.current;
 
-  const handleTouchStart = (event) => {
-    touchStartX.current = event.touches[0]?.clientX ?? null;
-  };
-
-  const handleTouchEnd = (event) => {
-    const startX = touchStartX.current;
-    const endX = event.changedTouches[0]?.clientX ?? null;
-
-    touchStartX.current = null;
-
-    if (startX === null || endX === null) {
+    if (!section) {
       return;
     }
 
-    const distance = startX - endX;
+    const sectionTop = window.scrollY + section.getBoundingClientRect().top;
+    const travel = Math.max(1, section.offsetHeight - window.innerHeight);
+    const progress = projects.length === 1 ? 0 : index / (projects.length - 1);
 
-    if (Math.abs(distance) < 48) {
-      return;
-    }
-
-    if (distance > 0) {
-      next();
-      return;
-    }
-
-    prev();
+    window.scrollTo({
+      top: sectionTop + travel * progress,
+      behavior: "smooth",
+    });
   };
 
   return (
-    <PageSection id="projects" className="xl:min-h-[100svh]">
-      <div className="relative mx-auto max-w-7xl">
-        <GlowOrb
-          color={toGlowColor(activeProject.previewAccent, 0.28)}
-          position="left-1/2 top-[28%]"
-          translateX="-80%"
-          translateY="-30%"
-          className="scale-[0.95] opacity-90"
-        />
-        <GlowOrb
-          color={toGlowColor(activeProject.previewAccentAlt ?? activeProject.previewAccent, 0.24)}
-          position="left-1/2 top-[62%]"
-          translateX="8%"
-          translateY="-30%"
-          className="scale-[0.82] opacity-75"
-        />
-
-        <SectionTitle>Proyectos Destacados</SectionTitle>
-
-        <ScrollReveal variant="carousel" className="mt-8 min-w-0">
-          <div
-            className="relative overflow-hidden rounded-[2rem] p-3 shadow-[0_35px_90px_rgba(2,6,23,0.42)] md:p-4"
-            style={{ background: activeProject.previewSurface }}
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
+    <PageSection id="projects" className="project-focus-section">
+      <SectionTitle>Proyectos Destacados</SectionTitle>
+      <div ref={sectionRef} className="project-focus-scroll" style={{ height: travelHeight }}>
+        <div
+          className={`project-focus-pin is-${pinState} ${
+            isRailCollapsed ? "has-collapsed-rail" : "has-open-rail"
+          }`}
+          style={{
+            "--project-accent": toGlowColor(activeProject.previewAccent, 0.36),
+            "--project-accent-soft": toGlowColor(activeProject.previewAccent, 0.18),
+            "--project-accent-alt": toGlowColor(
+              activeProject.previewAccentAlt ?? activeProject.previewAccent,
+              0.28
+            ),
+          }}
+        >
+          <aside
+            className={`project-focus-rail ${isRailCollapsed ? "is-collapsed" : ""}`}
+            aria-label="Navegacion de proyectos destacados"
           >
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(7,10,18,0.08),rgba(4,6,12,0.38))]" />
-            <div className="relative mb-3 flex items-center gap-3">
-              <div className="h-1 flex-1 overflow-hidden rounded-full bg-white/12">
-                <div
-                  className="h-full rounded-full bg-white/80 transition-[width] duration-500 ease-out"
-                  style={{
-                    width: `${((activeIndex + 1) / projects.length) * 100}%`,
-                  }}
-                />
-              </div>
-              <span className="rounded-full border border-white/12 bg-black/20 px-2.5 py-1 text-xs font-medium text-white/72">
-                {formatCount(activeIndex + 1)}/{formatCount(projects.length)}
-              </span>
-              <button
-                type="button"
-                onClick={prev}
-                className="inline-flex h-9 items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-3 text-sm font-semibold text-white transition duration-300 hover:border-white/30 hover:bg-white/[0.12]"
-              >
-                {"<"}
-              </button>
-              <button
-                type="button"
-                onClick={next}
-                className="inline-flex h-9 items-center justify-center rounded-full border border-white/12 bg-white/[0.06] px-3 text-sm font-semibold text-white transition duration-300 hover:border-white/30 hover:bg-white/[0.12]"
-              >
-                {">"}
-              </button>
-            </div>
+            <button
+              className="project-focus-rail-toggle"
+              type="button"
+              aria-label={isRailCollapsed ? "Mostrar proyectos" : "Ocultar proyectos"}
+              aria-expanded={!isRailCollapsed}
+              onClick={() => setIsRailCollapsed((current) => !current)}
+            >
+              <SolidIcon name="menu" className="h-5 w-5" />
+            </button>
 
-            <div className="grid gap-3 xl:grid-cols-[minmax(0,1fr)_164px]">
-              <div className="min-w-0 min-h-0">
-                <ProjectSpotlightCard
-                  key={activeProject.id}
-                  project={activeProject}
-                />
-              </div>
-
-              <aside className="min-w-0 min-h-0 rounded-[1.4rem] bg-black/14 p-2 backdrop-blur-sm">
-                <div className="project-rail-scroll flex gap-2 overflow-x-auto pb-2 xl:max-h-[640px] xl:flex-col xl:overflow-y-auto xl:overflow-x-hidden xl:pb-0 xl:pr-1">
-                  {projects.map((project, index) => (
-                    <TimelineButton
-                      key={project.id}
-                      isActive={index === activeIndex}
-                      project={project}
-                      onClick={() => setActiveIndex(index)}
-                    />
-                  ))}
-                </div>
-              </aside>
+            <div className="project-focus-rail-list">
+              {projects.map((project, index) => (
+                <button
+                  key={project.id}
+                  className={`project-focus-rail-card ${index === activeIndex ? "is-active" : ""}`}
+                  type="button"
+                  aria-label={`Ver proyecto ${project.title}`}
+                  aria-current={index === activeIndex ? "true" : undefined}
+                  onClick={() => scrollToProject(index)}
+                >
+                  <span className="project-focus-rail-node" aria-hidden="true" />
+                  <span className="project-focus-rail-copy">
+                    <strong>{project.title}</strong>
+                    <small>{project.createdAt}</small>
+                  </span>
+                </button>
+              ))}
             </div>
+          </aside>
+
+          <div className="project-focus-lights" aria-hidden="true" />
+          <div className="project-focus-scene">
+            {projects.map((project, index) => (
+              <ProjectFocusItem
+                key={project.id}
+                index={index}
+                total={projects.length}
+                offset={index - journeyIndex}
+                project={project}
+              />
+            ))}
           </div>
-        </ScrollReveal>
+        </div>
       </div>
     </PageSection>
   );
 }
 
-function TimelineButton({ isActive, onClick, project }) {
+function ProjectFocusItem({ project, index, total, offset }) {
+  const distance = Math.abs(offset);
+  const visibility = clamp(1 - distance * 1.25, 0, 1);
+  const isActive = distance < 0.55;
+  const direction = offset < 0 ? -1 : 1;
+  const depth = Math.min(distance, 1.35);
+  const imageY = offset * 92;
+  const textY = offset * -72;
+  const imageX = direction * Math.min(distance, 1) * -28;
+  const textX = direction * Math.min(distance, 1) * 28;
+  const blur = distance * 7;
+  const scale = 1 - Math.min(distance, 1) * 0.08;
+  const z = -depth * 220;
+  const links = getProjectLinks(project);
+
   return (
-    <button
-      type="button"
-      onClick={onClick}
-      className={`group relative min-w-[138px] overflow-hidden rounded-[0.95rem] px-3 py-2 text-left transition duration-300 xl:min-w-0 ${
-        isActive
-          ? "bg-white/[0.1] shadow-[0_18px_36px_rgba(2,6,23,0.24)]"
-          : "bg-white/[0.03] hover:bg-white/[0.06]"
-      }`}
+    <article
+      className="project-focus-item"
+      aria-hidden={!isActive}
+      style={{
+        "--item-opacity": visibility,
+        "--item-blur": `${blur}px`,
+        "--item-accent": toGlowColor(project.previewAccent, 0.32),
+        "--item-accent-soft": toGlowColor(project.previewAccent, 0.16),
+        "--image-transform": `translate3d(${imageX}px, ${imageY}px, ${z}px) rotateY(${
+          -offset * 8
+        }deg) scale(${scale})`,
+        "--text-transform": `translate3d(${textX}px, ${textY}px, ${z}px) rotateY(${
+          offset * 8
+        }deg) scale(${scale})`,
+        pointerEvents: isActive ? "auto" : "none",
+      }}
     >
-      <div
-        className={`absolute inset-0 transition-opacity duration-300 ${
-          isActive ? "opacity-100" : "opacity-0 group-hover:opacity-80"
-        }`}
-        style={{
-          background: `linear-gradient(135deg, ${toGlowColor(project.previewAccent, 0.22)}, ${toGlowColor(
-            project.previewAccentAlt ?? project.previewAccent,
-            0.08
-          )} 55%, transparent)`,
-          border: `1px solid ${toGlowColor(project.previewAccent, 0.16)}`,
-        }}
-      />
-      <div className="relative min-w-0">
-        <h3 className="truncate text-[13px] font-semibold text-white md:text-sm">
-          {project.title}
-        </h3>
+      <div className="project-focus-image-card">
+        {project.previewImage ? (
+          <img src={project.previewImage} alt={`${project.title} preview`} loading={isActive ? "eager" : "lazy"} />
+        ) : null}
+        <span className="project-focus-image-glow" aria-hidden="true" />
       </div>
-    </button>
+
+      <div className="project-focus-text-card">
+        <p className="project-focus-eyebrow">
+          {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
+        </p>
+        <h3>{project.title}</h3>
+        <p className="project-focus-category">{project.category}</p>
+        <p className="project-focus-summary">
+          {project.summary ?? project.description ?? project.tagline}
+        </p>
+
+        {links.length ? (
+          <section className="project-focus-link-panel" aria-labelledby={`${project.id}-links-title`}>
+            <h4 id={`${project.id}-links-title`}>Enlaces</h4>
+            <div className="project-focus-links" aria-label="Enlaces del proyecto">
+              {links.map((link) => (
+                <a
+                  key={`${link.type}-${link.url}`}
+                  className={`project-focus-link is-${link.type}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={link.tooltip}
+                >
+                  <SolidIcon name={link.icon} className="h-5 w-5" />
+                  <span className="project-focus-tooltip" role="tooltip">
+                    {link.tooltip}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
+      </div>
+    </article>
   );
+}
+
+function getProjectLinks(project) {
+  const repositories = (project.repositories ?? []).map((link) =>
+    normalizeProjectLink(link, "repository")
+  );
+  const previews = (project.previews ?? []).map((link) => normalizeProjectLink(link, "preview"));
+
+  return [...repositories, ...previews].filter((link) => link.url);
+}
+
+function normalizeProjectLink(link, fallbackType) {
+  const type = normalizeLinkType(link.type ?? inferLinkType(link.label, link.url, fallbackType));
+
+  return {
+    ...link,
+    type,
+    icon: getLinkIcon(type),
+    tooltip: getLinkTooltip(type, link.label),
+  };
+}
+
+function inferLinkType(label, url, fallbackType) {
+  const value = `${label ?? ""} ${url ?? ""}`.toLowerCase();
+
+  if (value.includes("github.com") || value.includes("github")) {
+    return "github";
+  }
+
+  if (value.includes("docs") || value.includes("documentacion")) {
+    return "docs";
+  }
+
+  if (
+    value.includes("roblox.com") ||
+    value.includes("jugar") ||
+    value.includes("/games/") ||
+    value.includes("game")
+  ) {
+    return "game";
+  }
+
+  if (value.includes("website") || value.includes("sitio") || value.includes("app en vivo")) {
+    return "site";
+  }
+
+  return fallbackType;
+}
+
+function normalizeLinkType(type) {
+  const value = `${type ?? ""}`.trim().toLowerCase();
+
+  if (value === "repository" || value === "repo" || value === "source") {
+    return "github";
+  }
+
+  if (value === "preview" || value === "live" || value === "website") {
+    return "site";
+  }
+
+  return value;
+}
+
+function getLinkIcon(type) {
+  switch (type) {
+    case "github":
+      return "github";
+    case "docs":
+      return "document";
+    case "game":
+      return "gamepad";
+    case "site":
+      return "globe";
+    default:
+      return "externalLink";
+  }
+}
+
+function getLinkTooltip(type, label) {
+  const fallback = {
+    github: "Repositorio",
+    docs: "Documentacion",
+    game: "Jugar proyecto",
+    site: "Sitio en vivo",
+  };
+
+  return label || fallback[type] || "Abrir enlace";
+}
+
+function clamp(value, min, max) {
+  return Math.min(Math.max(value, min), max);
 }
 
 function formatCount(value) {
