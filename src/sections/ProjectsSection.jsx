@@ -15,7 +15,19 @@ export default function ProjectsSection() {
   const sectionRef = useRef(null);
   const [journeyIndex, setJourneyIndex] = useState(0);
   const [pinState, setPinState] = useState("before");
-  const [isRailCollapsed, setIsRailCollapsed] = useState(false);
+  const [isRailCollapsed, setIsRailCollapsed] = useState(
+    () => typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches
+  );
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 640px)");
+    const syncRailState = () => setIsRailCollapsed(media.matches);
+
+    syncRailState();
+    media.addEventListener("change", syncRailState);
+
+    return () => media.removeEventListener("change", syncRailState);
+  }, []);
 
   useEffect(() => {
     if (!projects.length) {
@@ -72,7 +84,7 @@ export default function ProjectsSection() {
 
   const activeIndex = Math.round(journeyIndex);
   const activeProject = projects[activeIndex];
-  const travelHeight = `${Math.max(420, projects.length * 88)}vh`;
+  const travelHeight = `${Math.max(520, projects.length * 120)}vh`;
 
   const scrollToProject = (index) => {
     const section = sectionRef.current;
@@ -174,6 +186,7 @@ function ProjectFocusItem({ project, index, total, offset }) {
   const scale = 1 - Math.min(distance, 1) * 0.08;
   const z = -depth * 220;
   const links = getProjectLinks(project);
+  const note = getProjectNote(project);
 
   return (
     <article
@@ -195,43 +208,60 @@ function ProjectFocusItem({ project, index, total, offset }) {
     >
       <div className="project-focus-image-card">
         {project.previewImage ? (
-          <img src={project.previewImage} alt={`${project.title} preview`} loading={isActive ? "eager" : "lazy"} />
+          <img
+            src={project.previewImage}
+            alt={`${project.title} preview`}
+            loading={isActive ? "eager" : "lazy"}
+          />
+        ) : null}
+        {note ? (
+          <span className="project-focus-note">
+            <SolidIcon name="star" className="h-5 w-5" />
+            <span>
+              <strong>{note.label}</strong>
+              <small>{note.detail}</small>
+            </span>
+          </span>
         ) : null}
         <span className="project-focus-image-glow" aria-hidden="true" />
       </div>
 
       <div className="project-focus-text-card">
-        <p className="project-focus-eyebrow">
-          {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
-        </p>
-        <h3>{project.title}</h3>
-        <p className="project-focus-category">{project.category}</p>
-        <p className="project-focus-summary">
-          {project.summary ?? project.description ?? project.tagline}
-        </p>
+        <div className="project-focus-title-row">
+          <div className="project-focus-heading">
+            <p className="project-focus-eyebrow">
+              {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
+            </p>
+            <h3>{project.title}</h3>
+          </div>
 
-        {links.length ? (
           <section className="project-focus-link-panel" aria-labelledby={`${project.id}-links-title`}>
             <h4 id={`${project.id}-links-title`}>Enlaces</h4>
-            <div className="project-focus-links" aria-label="Enlaces del proyecto">
-              {links.map((link) => (
-                <a
-                  key={`${link.type}-${link.url}`}
-                  className={`project-focus-link is-${link.type}`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={link.tooltip}
-                >
-                  <SolidIcon name={link.icon} className="h-5 w-5" />
-                  <span className="project-focus-tooltip" role="tooltip">
-                    {link.tooltip}
-                  </span>
-                </a>
-              ))}
-            </div>
+            {links.length ? (
+              <div className="project-focus-links" aria-label="Enlaces del proyecto">
+                {links.map((link) => (
+                  <a
+                    key={`${link.type}-${link.url}`}
+                    className={`project-focus-link is-${link.type}`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={link.tooltip}
+                  >
+                    <SolidIcon name={link.icon} className="h-5 w-5" />
+                    <span className="project-focus-tooltip" role="tooltip">
+                      {link.tooltip}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p>Próximamente</p>
+            )}
           </section>
-        ) : null}
+        </div>
+        <p className="project-focus-category">{project.category}</p>
+        <p className="project-focus-summary">{getDisplaySummary(project)}</p>
       </div>
     </article>
   );
@@ -244,6 +274,44 @@ function getProjectLinks(project) {
   const previews = (project.previews ?? []).map((link) => normalizeProjectLink(link, "preview"));
 
   return [...repositories, ...previews].filter((link) => link.url);
+}
+
+function getDisplaySummary(project) {
+  const summary = project.summary ?? project.description ?? project.tagline ?? "";
+
+  return compactText(summary, 320);
+}
+
+function compactText(value, maxLength) {
+  if (value.length <= maxLength) {
+    return value;
+  }
+
+  const trimmed = value.slice(0, maxLength).trim();
+  const lastSpace = trimmed.lastIndexOf(" ");
+  const compacted = lastSpace > 80 ? trimmed.slice(0, lastSpace) : trimmed;
+
+  return `${compacted}.`;
+}
+
+function getProjectNote(project) {
+  const status = `${project.status ?? ""}`.toLowerCase();
+
+  if (project.id === "educamp" || status.includes("top #1") || status.includes("top 1")) {
+    return {
+      label: "TOP #1",
+      detail: "Hackathon TCS Empowers",
+    };
+  }
+
+  if (project.id === "im-king" || (status.includes("gamejam") && status.includes("campe"))) {
+    return {
+      label: "TOP #1",
+      detail: "Roblox Gamejam DevRel",
+    };
+  }
+
+  return null;
 }
 
 function normalizeProjectLink(link, fallbackType) {

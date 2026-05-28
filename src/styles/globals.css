@@ -359,12 +359,61 @@ select {
   filter: blur(20px);
 }
 
+.project-focus-note {
+  position: absolute;
+  top: clamp(0.85rem, 2vw, 1.35rem);
+  right: clamp(0.85rem, 2vw, 1.35rem);
+  z-index: 2;
+  display: inline-flex;
+  max-width: min(23rem, 48%);
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 1rem;
+  background: rgba(7, 10, 18, 0.68);
+  color: #ffffff;
+  padding: 0.7rem 0.9rem;
+  text-align: left;
+  box-shadow:
+    0 18px 42px rgba(0, 0, 0, 0.32),
+    0 0 34px rgba(250, 204, 21, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(10px);
+}
+
+.project-focus-note svg {
+  flex: 0 0 auto;
+  color: #facc15;
+  filter: drop-shadow(0 0 10px rgba(250, 204, 21, 0.55));
+}
+
+.project-focus-note strong,
+.project-focus-note small {
+  display: block;
+}
+
+.project-focus-note strong {
+  font-size: clamp(0.78rem, 1vw, 0.95rem);
+  font-weight: 900;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.project-focus-note small {
+  margin-top: 0.22rem;
+  color: rgba(255, 255, 255, 0.74);
+  font-size: clamp(0.7rem, 0.86vw, 0.82rem);
+  font-weight: 650;
+  line-height: 1.18;
+}
+
 .project-focus-text-card {
   position: absolute;
-  right: clamp(1rem, 4vw, 3.25rem);
-  bottom: clamp(1.25rem, 10%, 6rem);
-  left: clamp(1rem, 4vw, 3.25rem);
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 2;
+  display: grid;
+  gap: 0.85rem;
   max-height: none;
   padding: clamp(1rem, 1.8vw, 1.45rem);
   background:
@@ -376,6 +425,18 @@ select {
     inset 0 1px 0 rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(12px);
   transform: var(--text-transform);
+  border-radius: 0 0 1rem 1rem;
+}
+
+.project-focus-title-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: clamp(1rem, 3vw, 2rem);
+  align-items: start;
+}
+
+.project-focus-heading {
+  min-width: 0;
 }
 
 .project-focus-eyebrow,
@@ -395,19 +456,18 @@ select {
 }
 
 .project-focus-category {
-  margin-top: 0.8rem;
   color: rgba(255, 255, 255, 0.68);
 }
 
 .project-focus-summary {
   display: -webkit-box;
-  margin: 1.1rem 0 0;
+  margin: 0;
   overflow: hidden;
   color: rgba(255, 255, 255, 0.76);
   font-size: clamp(0.98rem, 1.45vw, 1.12rem);
   line-height: 1.48;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 4;
 }
 
 .project-focus-meta {
@@ -438,7 +498,10 @@ select {
 }
 
 .project-focus-link-panel {
-  margin-top: 1rem;
+  justify-self: end;
+  width: max-content;
+  max-width: min(100%, 18rem);
+  min-width: 0;
 }
 
 .project-focus-link-panel h4 {
@@ -447,6 +510,13 @@ select {
   font-size: 0.82rem;
   font-weight: 850;
   text-transform: uppercase;
+}
+
+.project-focus-link-panel p {
+  margin: 0.85rem 0 0;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 0.86rem;
+  font-weight: 650;
 }
 
 .project-focus-link {
@@ -459,7 +529,7 @@ select {
 
 .project-focus-link.is-game {
   background: linear-gradient(135deg, #20ff75, #04b84f);
-  color: #03180b;
+  color: #ffffff;
   box-shadow:
     0 18px 38px rgba(32, 255, 117, 0.24),
     0 0 34px rgba(32, 255, 117, 0.52),
@@ -717,11 +787,15 @@ select {
 
 @media (max-width: 1023px) {
   .project-focus-pin {
-    height: 95svh;
-    min-height: 95svh;
+    height: 100svh;
+    min-height: 100svh;
     align-items: center;
     padding-inline: 1rem;
     padding-block: 1rem;
+  }
+
+  .project-focus-pin.is-fixed {
+    top: 0;
   }
 
   .project-focus-scene {
@@ -732,28 +806,49 @@ select {
 
   .project-focus-item {
     inset: 0;
+    display: grid;
+    grid-template-rows: minmax(0, 42%) minmax(0, 1fr);
+    gap: 0.85rem;
     width: min(100%, 760px);
     height: 100%;
   }
 
   .project-focus-image-card {
-    height: 100%;
+    height: auto;
   }
 
   .project-focus-text-card {
-    right: 0.9rem;
-    bottom: clamp(1rem, 8%, 3.5rem);
-    left: 0.9rem;
+    position: relative;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
+    align-items: start;
+    overflow: visible;
     padding: 1rem;
   }
 
+  .project-focus-note {
+    max-width: min(22rem, 68%);
+    padding: 0.65rem 0.9rem;
+    font-size: 0.76rem;
+  }
+
   .project-focus-text-card h3 {
-    font-size: clamp(1.65rem, 6.2vw, 2.55rem);
+    font-size: clamp(1.55rem, 5.8vw, 2.35rem);
   }
 
   .project-focus-summary {
-    line-height: 1.55;
-    -webkit-line-clamp: 2;
+    display: block;
+    line-height: 1.48;
+    -webkit-line-clamp: unset;
+  }
+
+  .project-focus-link-panel {
+    justify-self: stretch;
+    width: 100%;
   }
 
   .project-focus-links {
@@ -767,10 +862,21 @@ select {
     padding-inline: 0.85rem;
   }
 
+  .project-focus-pin.has-open-rail::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 4;
+    background: rgba(3, 1, 12, 0.82);
+    backdrop-filter: blur(6px);
+  }
+
   .project-focus-rail {
-    top: auto;
-    bottom: 0.8rem;
+    position: fixed;
+    top: 0.85rem;
+    bottom: auto;
     right: 0.85rem;
+    z-index: 6;
     width: 2.75rem;
     max-height: 2.75rem;
     transform: none;
@@ -783,12 +889,12 @@ select {
   }
 
   .project-focus-rail:not(.is-collapsed) {
-    width: min(18rem, calc(100vw - 1.7rem));
-    max-height: 14rem;
+    width: min(20rem, calc(100vw - 1.7rem));
+    max-height: calc(100svh - 1.7rem);
   }
 
   .project-focus-rail:not(.is-collapsed) .project-focus-rail-list {
-    max-height: 10.5rem;
+    max-height: calc(100svh - 5.2rem);
     opacity: 1;
     pointer-events: auto;
     transform: none;
@@ -805,18 +911,37 @@ select {
 
   .project-focus-item {
     height: 100%;
+    grid-template-rows: minmax(0, 40%) minmax(0, 1fr);
+    gap: 0.75rem;
   }
 
   .project-focus-text-card h3 {
-    font-size: clamp(1.8rem, 11vw, 2.8rem);
+    font-size: clamp(1.55rem, 9vw, 2.35rem);
+  }
+
+  .project-focus-title-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.85rem;
   }
 
   .project-focus-summary {
-    -webkit-line-clamp: 2;
+    font-size: 0.92rem;
+  }
+
+  .project-focus-note {
+    top: 0.7rem;
+    right: 0.7rem;
+    max-width: calc(100% - 1.4rem);
   }
 
   .project-focus-link {
     width: 2.75rem;
     height: 2.75rem;
+  }
+
+  .project-focus-link-panel {
+    justify-self: stretch;
+    width: 100%;
+    max-width: none;
   }
 }
