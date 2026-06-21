@@ -180,6 +180,92 @@ export const services = [
   },
 ];
 
+export const projectRecruiterBriefs = {
+  "desayunos-canuto": brief(
+    "Landing page comercial para un negocio local de desayunos. La pieza ordena oferta, confianza y contacto en una experiencia clara para convertir curiosidad en visita o pedido. Logre llevar el negocio a una ",
+    emphasis("URL publica 24/7"),
+    ", con la informacion critica del servicio en una sola ruta y lista para compartirse en redes, WhatsApp y buscadores. Entregue una solucion enfocada en ",
+    emphasis("lanzamiento, claridad comercial y reduccion de friccion"),
+    " para un cliente no tecnico."
+  ),
+  "air-brey-services": brief(
+    "Sitio web para servicios HVAC en Broward County, construido para explicar servicios, generar confianza y abrir contacto comercial sin pasos innecesarios. Logre construir ",
+    emphasis("presencia digital 0 a 1"),
+    ", contacto visible en el primer recorrido y estructura pensada para convertir busquedas locales en solicitudes de estimacion. Entendi el ",
+    emphasis("negocio, mercado local y conversion"),
+    ", no solo implementacion visual."
+  ),
+  "quick-coins": brief(
+    "Juego competitivo en Roblox con minijuegos, recompensas, tienda y economia interna. Convierte partidas cortas en un ciclo de riesgo, habilidad y premio. Integre varios modos bajo una ",
+    emphasis("misma economia jugable"),
+    ", habilitando monetizacion por recompensas y mas puntos de retencion con retos, tienda y progresion. Combine ",
+    emphasis("gameplay, sistemas economicos y experiencia de usuario"),
+    " dentro de una plataforma con restricciones reales."
+  ),
+  "season-service": brief(
+    "Modulo open source para Roblox que organiza temporadas, progreso y eventos con una API reutilizable para otros desarrolladores. Converti una logica comun de juegos en un modulo ",
+    emphasis("documentado, integrable y mantenible"),
+    ", reduciendo trabajo repetitivo para la comunidad. Pense en ",
+    emphasis("APIs, documentacion y adopcion por terceros"),
+    ", no solo en resolver mi propio caso."
+  ),
+  movikoox: brief(
+    "Plataforma ciudadana para consultar transporte publico en Campeche con enfoque gratuito, local y pensado para resolver una necesidad diaria. Centralice rutas, paradas y consulta en productos web separados, transformando ",
+    emphasis("informacion dispersa"),
+    " en un servicio consumible por usuarios y aplicaciones. Detecte una necesidad publica, separe ",
+    emphasis("frontend/API"),
+    " y construi una base escalable para ciudad."
+  ),
+  minidbeaver: brief(
+    "Herramienta de escritorio experimental para explorar bases de datos y consultas SQL con una experiencia mas ligera que clientes tradicionales. Acorte el flujo de validacion al enfocarme en ",
+    emphasis("conexiones, estructura y consultas rapidas"),
+    " dentro de una interfaz directa. Aplique criterio de producto a ",
+    emphasis("herramientas internas y productividad tecnica"),
+    "."
+  ),
+  "space-vision": brief(
+    "Plataforma educativa interactiva creada para NASA Space Apps Challenge, orientada a convertir datos cientificos en una experiencia STEM visual. Alcance ",
+    emphasis("Top 4 en NASA Space Apps"),
+    ", validando ejecucion tecnica, narrativa cientifica y capacidad de entrega en hackathon. Traduje informacion compleja en un producto comprensible para ",
+    emphasis("aprendizaje y divulgacion"),
+    "."
+  ),
+  "mortal-run": brief(
+    "Juego de obstaculos y plataformas con movimiento 2D/3D, habilidades y mapas que premian dominio, rutas y reflejos. Aterrice ",
+    emphasis("diseno de niveles, control de personaje, feedback visual y loops competitivos"),
+    " dentro de una experiencia jugable. Conecte mecanicas, sensacion de juego y progresion en un producto con identidad propia."
+  ),
+  "im-king": brief(
+    "Juego de arena competitivo donde el objetivo es coronarse o quitar el trono a otro jugador mediante ataque, defensa y posicionamiento. El proyecto fue ",
+    emphasis("campeon internacional en Roblox Gamejam DevRel 2021"),
+    ", destacando por un loop simple, competitivo y memorable. Demostre creatividad bajo presion, ",
+    emphasis("criterio de gameplay"),
+    " y capacidad de destacar entre equipos."
+  ),
+  electrorbit: brief(
+    "Herramienta visual de quimica para consultar elementos y configuracion electronica con una navegacion simple y accesible. Converti una consulta academica abstracta en una ",
+    emphasis("experiencia visual inmediata"),
+    " para estudiantes y curiosos. Transforme contenido tecnico en interfaces educativas faciles de explorar."
+  ),
+  "salud-plus": brief(
+    "API medica de hackathon para convertir archivos DICOM en imagenes y GIFs accesibles desde dispositivos comunes. Reduje barreras de visualizacion clinica al evitar infraestructura pesada para revisar estudios en ",
+    emphasis("formatos mas simples"),
+    ". Identifique cuellos de botella de interoperabilidad y los converti en servicios consumibles."
+  ),
+  beesmath: brief(
+    "Experiencia web educativa para ninos de 3 a 6 anos enfocada en conteo, interaccion amable y recursos visuales/sonoros. Adapte contenido temprano a una interfaz ludica, con ",
+    emphasis("feedback pensado para sostener atencion"),
+    " y aprendizaje inicial. Disene para un usuario real con necesidades cognitivas concretas, no para una demo generica."
+  ),
+  educamp: brief(
+    "App educativa de hackathon para lectura, comprension y aritmetica basica con rutas, videos, actividades y minijuegos. Gane ",
+    emphasis("Top #1 en Hackathon TCS Empowers"),
+    " y consegui respaldo institucional para atacar rezago educativo. Uni producto, ",
+    emphasis("impacto social, validacion externa y ejecucion rapida"),
+    "."
+  ),
+};
+
 export const featuredProjects = [
   {
     id: "desayunos-canuto",
@@ -187,8 +273,8 @@ export const featuredProjects = [
     createdAt: "Mayo 2026",
     title: "Desayunos Canuto",
     category: "Landing page para negocio local",
-    status: "Próximamente",
-    statusType: "prototype",
+    status: "Desplegado oficialmente",
+    statusType: "live",
     accent: "amber",
     previewAccent: "#f59e0b",
     previewAccentAlt: "#ef4444",
@@ -197,12 +283,14 @@ export const featuredProjects = [
       "radial-gradient(circle at 16% 18%, rgba(245,158,11,0.28), transparent 24%), radial-gradient(circle at 82% 22%, rgba(239,68,68,0.18), transparent 22%), linear-gradient(135deg, rgba(43,24,10,0.96), rgba(73,37,18,0.88) 52%, rgba(16,10,8,0.98))",
     previewLabel: "Preview de Desayunos Canuto",
     previewNote:
-      "Captura preparada para presentar la landing cuando el sitio quede listo para publicarse.",
+      "Captura del sitio lanzado oficialmente para presentar la oferta y facilitar el contacto del negocio.",
     summary:
-      "Desayunos Canuto es una landing page en desarrollo para presentar la oferta de desayunos, reforzar la identidad visual del negocio y facilitar que nuevos clientes encuentren informacion clara sobre el servicio. El proyecto esta pensado como una experiencia directa, visual y optimizada para conversion.",
+      "Desayunos Canuto es una landing page publicada oficialmente para presentar la oferta de desayunos, reforzar la identidad visual del negocio y facilitar que nuevos clientes encuentren informacion clara sobre el servicio. El proyecto esta pensado como una experiencia directa, visual y optimizada para conversion.",
     stack: ["React", "Vite", "Landing page", "Negocio local"],
     repositories: [],
-    previews: [],
+    previews: [
+      projectLink("Sitio en vivo", "https://desayunoscanuto.vercel.app/"),
+    ],
   },
   {
     id: "air-brey-services",
@@ -593,4 +681,14 @@ function icon(src, label) {
 
 function projectLink(label, url, type) {
   return type ? { label, url, type } : { label, url };
+}
+
+function brief(...segments) {
+  return segments.map((segment) =>
+    typeof segment === "string" ? { text: segment } : segment
+  );
+}
+
+function emphasis(text) {
+  return { text, emphasis: true };
 }

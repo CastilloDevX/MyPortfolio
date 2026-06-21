@@ -29,6 +29,24 @@
   }
 }
 
+@keyframes award-shine-sweep {
+  0%,
+  58% {
+    transform: translateX(-135%) skewX(-18deg);
+    opacity: 0;
+  }
+
+  66% {
+    opacity: 0.85;
+  }
+
+  82%,
+  100% {
+    transform: translateX(155%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
 .animate-glow-float {
   --glow-x: 0;
   --glow-y: 0;

@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo } from "react";
 import PageSection from "../components/layout/PageSection.jsx";
+import ScrollReveal from "../components/motion/ScrollReveal.jsx";
 import SolidIcon from "../components/ui/SolidIcon.jsx";
-import { featuredProjects } from "../data/portfolio.js";
+import { featuredProjects, projectRecruiterBriefs } from "../data/portfolio.js";
 import SectionTitle from "../components/common/SectionTitle.jsx";
 
 export default function ProjectsSection() {
@@ -12,258 +13,107 @@ export default function ProjectsSection() {
       ),
     []
   );
-  const sectionRef = useRef(null);
-  const [journeyIndex, setJourneyIndex] = useState(0);
-  const [pinState, setPinState] = useState("before");
-  const [isRailCollapsed, setIsRailCollapsed] = useState(
-    () => typeof window !== "undefined" && window.matchMedia("(max-width: 640px)").matches
-  );
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 640px)");
-    const syncRailState = () => setIsRailCollapsed(media.matches);
-
-    syncRailState();
-    media.addEventListener("change", syncRailState);
-
-    return () => media.removeEventListener("change", syncRailState);
-  }, []);
-
-  useEffect(() => {
-    if (!projects.length) {
-      return undefined;
-    }
-
-    let frame = 0;
-
-    const updateJourney = () => {
-      frame = 0;
-
-      const section = sectionRef.current;
-      if (!section) {
-        return;
-      }
-
-      const rect = section.getBoundingClientRect();
-      const travel = Math.max(1, rect.height - window.innerHeight);
-      const progress = clamp(-rect.top / travel, 0, 1);
-
-      if (rect.top > 0) {
-        setPinState("before");
-      } else if (rect.bottom < window.innerHeight) {
-        setPinState("after");
-      } else {
-        setPinState("fixed");
-      }
-
-      setJourneyIndex(progress * (projects.length - 1));
-    };
-
-    const requestUpdate = () => {
-      if (!frame) {
-        frame = window.requestAnimationFrame(updateJourney);
-      }
-    };
-
-    updateJourney();
-    window.addEventListener("scroll", requestUpdate, { passive: true });
-    window.addEventListener("resize", requestUpdate);
-
-    return () => {
-      window.removeEventListener("scroll", requestUpdate);
-      window.removeEventListener("resize", requestUpdate);
-      if (frame) {
-        window.cancelAnimationFrame(frame);
-      }
-    };
-  }, [projects.length]);
 
   if (!projects.length) {
     return null;
   }
 
-  const activeIndex = Math.round(journeyIndex);
-  const activeProject = projects[activeIndex];
-  const travelHeight = `${Math.max(520, projects.length * 120)}vh`;
-
-  const scrollToProject = (index) => {
-    const section = sectionRef.current;
-
-    if (!section) {
-      return;
-    }
-
-    const sectionTop = window.scrollY + section.getBoundingClientRect().top;
-    const travel = Math.max(1, section.offsetHeight - window.innerHeight);
-    const progress = projects.length === 1 ? 0 : index / (projects.length - 1);
-
-    window.scrollTo({
-      top: sectionTop + travel * progress,
-      behavior: "smooth",
-    });
-  };
-
   return (
-    <PageSection id="projects" className="project-focus-section">
+    <PageSection id="projects" className="project-timeline-section">
       <SectionTitle>Proyectos Destacados</SectionTitle>
-      <div ref={sectionRef} className="project-focus-scroll" style={{ height: travelHeight }}>
-        <div
-          className={`project-focus-pin is-${pinState} ${
-            isRailCollapsed ? "has-collapsed-rail" : "has-open-rail"
-          }`}
-          style={{
-            "--project-accent": toGlowColor(activeProject.previewAccent, 0.36),
-            "--project-accent-soft": toGlowColor(activeProject.previewAccent, 0.18),
-            "--project-accent-alt": toGlowColor(
-              activeProject.previewAccentAlt ?? activeProject.previewAccent,
-              0.28
-            ),
-          }}
-        >
-          <aside
-            className={`project-focus-rail ${isRailCollapsed ? "is-collapsed" : ""}`}
-            aria-label="Navegacion de proyectos destacados"
-          >
-            <button
-              className="project-focus-rail-toggle"
-              type="button"
-              aria-label={isRailCollapsed ? "Mostrar proyectos" : "Ocultar proyectos"}
-              aria-expanded={!isRailCollapsed}
-              onClick={() => setIsRailCollapsed((current) => !current)}
-            >
-              <SolidIcon name="menu" className="h-5 w-5" />
-            </button>
-
-            <div className="project-focus-rail-list">
-              {projects.map((project, index) => (
-                <button
-                  key={project.id}
-                  className={`project-focus-rail-card ${index === activeIndex ? "is-active" : ""}`}
-                  type="button"
-                  aria-label={`Ver proyecto ${project.title}`}
-                  aria-current={index === activeIndex ? "true" : undefined}
-                  onClick={() => scrollToProject(index)}
-                >
-                  <span className="project-focus-rail-node" aria-hidden="true" />
-                  <span className="project-focus-rail-copy">
-                    <strong>{project.title}</strong>
-                    <small>{project.createdAt}</small>
-                  </span>
-                </button>
-              ))}
-            </div>
-          </aside>
-
-          <div className="project-focus-lights" aria-hidden="true" />
-          <div className="project-focus-scene">
-            {projects.map((project, index) => (
-              <ProjectFocusItem
-                key={project.id}
-                index={index}
-                total={projects.length}
-                offset={index - journeyIndex}
-                project={project}
-              />
-            ))}
-          </div>
-        </div>
+      <div className="project-timeline" aria-label="Linea de tiempo de proyectos destacados">
+        {projects.map((project, index) => (
+          <ProjectTimelineItem
+            key={project.id}
+            index={index}
+            project={project}
+            total={projects.length}
+          />
+        ))}
       </div>
     </PageSection>
   );
 }
 
-function ProjectFocusItem({ project, index, total, offset }) {
-  const distance = Math.abs(offset);
-  const visibility = clamp(1 - distance * 1.25, 0, 1);
-  const isActive = distance < 0.55;
-  const direction = offset < 0 ? -1 : 1;
-  const depth = Math.min(distance, 1.35);
-  const imageY = offset * 92;
-  const textY = offset * -72;
-  const imageX = direction * Math.min(distance, 1) * -28;
-  const textX = direction * Math.min(distance, 1) * 28;
-  const blur = distance * 7;
-  const scale = 1 - Math.min(distance, 1) * 0.08;
-  const z = -depth * 220;
+function ProjectTimelineItem({ project, index, total }) {
+  const isReversed = index % 2 === 1;
   const links = getProjectLinks(project);
-  const note = getProjectNote(project);
+  const brief = projectRecruiterBriefs[project.id] ?? getFallbackBrief(project);
+  const award = getProjectAward(project);
 
   return (
-    <article
-      className="project-focus-item"
-      aria-hidden={!isActive}
-      style={{
-        "--item-opacity": visibility,
-        "--item-blur": `${blur}px`,
-        "--item-accent": toGlowColor(project.previewAccent, 0.32),
-        "--item-accent-soft": toGlowColor(project.previewAccent, 0.16),
-        "--image-transform": `translate3d(${imageX}px, ${imageY}px, ${z}px) rotateY(${
-          -offset * 8
-        }deg) scale(${scale})`,
-        "--text-transform": `translate3d(${textX}px, ${textY}px, ${z}px) rotateY(${
-          offset * 8
-        }deg) scale(${scale})`,
-        pointerEvents: isActive ? "auto" : "none",
-      }}
+    <ScrollReveal
+      as="article"
+      className={`project-timeline-item ${isReversed ? "is-reversed" : ""}`}
+      variant={isReversed ? "media-right" : "media-left"}
+      delay={Math.min(index * 35, 180)}
     >
-      <div className="project-focus-image-card">
+      <div className="project-timeline-node" aria-hidden="true">
+        <span>{formatCount(index + 1)}</span>
+      </div>
+
+      <div className="project-timeline-media">
         {project.previewImage ? (
-          <img
-            src={project.previewImage}
-            alt={`${project.title} preview`}
-            loading={isActive ? "eager" : "lazy"}
-          />
+          <>
+            <img
+              src={project.previewImage}
+              alt={`${project.title} - imagen representativa`}
+              loading={index < 2 ? "eager" : "lazy"}
+            />
+            {award ? (
+              <span className="project-award-frame">
+                <SolidIcon name="trophy" className="h-5 w-5" />
+                <span className="project-award-copy">
+                  <strong>{award.label}</strong>
+                  <span>{award.detail}</span>
+                </span>
+              </span>
+            ) : null}
+          </>
         ) : null}
-        {note ? (
-          <span className="project-focus-note">
-            <SolidIcon name="star" className="h-5 w-5" />
-            <span>
-              <strong>{note.label}</strong>
-              <small>{note.detail}</small>
-            </span>
-          </span>
-        ) : null}
-        <span className="project-focus-image-glow" aria-hidden="true" />
       </div>
 
-      <div className="project-focus-text-card">
-        <div className="project-focus-title-row">
-          <div className="project-focus-heading">
-            <p className="project-focus-eyebrow">
-              {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
-            </p>
-            <h3>{project.title}</h3>
-          </div>
+      <div className="project-timeline-copy">
+        <p className="project-timeline-kicker">
+          {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
+        </p>
+        <h3>{project.title}</h3>
 
-          <section className="project-focus-link-panel" aria-labelledby={`${project.id}-links-title`}>
-            <h4 id={`${project.id}-links-title`}>Enlaces</h4>
-            {links.length ? (
-              <div className="project-focus-links" aria-label="Enlaces del proyecto">
-                {links.map((link) => (
-                  <a
-                    key={`${link.type}-${link.url}`}
-                    className={`project-focus-link is-${link.type}`}
-                    href={link.url}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={link.tooltip}
-                  >
-                    <SolidIcon name={link.icon} className="h-5 w-5" />
-                    <span className="project-focus-tooltip" role="tooltip">
-                      {link.tooltip}
-                    </span>
-                  </a>
-                ))}
-              </div>
-            ) : (
-              <p>Próximamente</p>
-            )}
-          </section>
+        <div className="project-timeline-brief">
+          <p>{renderRichText(brief)}</p>
         </div>
-        <p className="project-focus-category">{project.category}</p>
-        <p className="project-focus-summary">{getDisplaySummary(project)}</p>
+
+        {links.length ? (
+          <div className="project-timeline-footer">
+            <div className="project-timeline-links" aria-label={`Enlaces de ${project.title}`}>
+              {links.map((link) => (
+                <a
+                  key={`${link.type}-${link.url}`}
+                  className={`project-timeline-link is-${link.type}`}
+                  href={link.url}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${project.title}: ${link.tooltip}`}
+                  title={link.tooltip}
+                >
+                  <SolidIcon name={link.icon} className="h-5 w-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+        ) : null}
       </div>
-    </article>
+    </ScrollReveal>
+  );
+}
+
+function renderRichText(segments) {
+  return segments.map((segment, index) =>
+    segment.emphasis ? (
+      <strong key={`${segment.text}-${index}`}>{segment.text}</strong>
+    ) : (
+      <span key={`${segment.text}-${index}`}>{segment.text}</span>
+    )
   );
 }
 
@@ -276,38 +126,37 @@ function getProjectLinks(project) {
   return [...repositories, ...previews].filter((link) => link.url);
 }
 
-function getDisplaySummary(project) {
+function getFallbackBrief(project) {
   const summary = project.summary ?? project.description ?? project.tagline ?? "";
 
-  return compactText(summary, 320);
+  return [
+    {
+      text: `${compactText(summary, 220)} Demuestra criterio para convertir una necesidad real en una solucion funcional, presentable y mantenible.`,
+    },
+  ];
 }
 
-function compactText(value, maxLength) {
-  if (value.length <= maxLength) {
-    return value;
-  }
-
-  const trimmed = value.slice(0, maxLength).trim();
-  const lastSpace = trimmed.lastIndexOf(" ");
-  const compacted = lastSpace > 80 ? trimmed.slice(0, lastSpace) : trimmed;
-
-  return `${compacted}.`;
-}
-
-function getProjectNote(project) {
+function getProjectAward(project) {
   const status = `${project.status ?? ""}`.toLowerCase();
 
   if (project.id === "educamp" || status.includes("top #1") || status.includes("top 1")) {
     return {
-      label: "TOP #1",
+      label: "Top #1",
       detail: "Hackathon TCS Empowers",
     };
   }
 
   if (project.id === "im-king" || (status.includes("gamejam") && status.includes("campe"))) {
     return {
-      label: "TOP #1",
+      label: "Champion",
       detail: "Roblox Gamejam DevRel",
+    };
+  }
+
+  if (status.includes("top 4")) {
+    return {
+      label: "Top 4",
+      detail: "NASA Space Apps",
     };
   }
 
@@ -345,7 +194,12 @@ function inferLinkType(label, url, fallbackType) {
     return "game";
   }
 
-  if (value.includes("website") || value.includes("sitio") || value.includes("app en vivo")) {
+  if (
+    value.includes("website") ||
+    value.includes("sitio") ||
+    value.includes("vercel.app") ||
+    value.includes("app en vivo")
+  ) {
     return "site";
   }
 
@@ -392,31 +246,18 @@ function getLinkTooltip(type, label) {
   return label || fallback[type] || "Abrir enlace";
 }
 
-function clamp(value, min, max) {
-  return Math.min(Math.max(value, min), max);
+function compactText(value, maxLength) {
+  if (value.length <= maxLength) {
+    return value;
+  }
+
+  const trimmed = value.slice(0, maxLength).trim();
+  const lastSpace = trimmed.lastIndexOf(" ");
+  const compacted = lastSpace > 80 ? trimmed.slice(0, lastSpace) : trimmed;
+
+  return `${compacted}.`;
 }
 
 function formatCount(value) {
   return String(value).padStart(2, "0");
-}
-
-function toGlowColor(hex, alpha) {
-  if (!hex?.startsWith("#")) {
-    return `rgba(255, 255, 255, ${alpha})`;
-  }
-
-  const value = hex.slice(1);
-  const normalized =
-    value.length === 3
-      ? value
-          .split("")
-          .map((char) => char + char)
-          .join("")
-      : value;
-
-  const red = Number.parseInt(normalized.slice(0, 2), 16);
-  const green = Number.parseInt(normalized.slice(2, 4), 16);
-  const blue = Number.parseInt(normalized.slice(4, 6), 16);
-
-  return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
 }
