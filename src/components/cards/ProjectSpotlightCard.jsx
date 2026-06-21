@@ -129,7 +129,7 @@ function CreationMeta({ accent, createdAt }) {
       >
         <SolidIcon name="calendar" className="h-4 w-4 text-white" />
       </span>
-      <span>Creado en {createdAt}</span>
+      <span>Creado el {createdAt}</span>
     </div>
   );
 }

@@ -27,7 +27,6 @@ export default function ProjectsSection() {
             key={project.id}
             index={index}
             project={project}
-            total={projects.length}
           />
         ))}
       </div>
@@ -35,7 +34,7 @@ export default function ProjectsSection() {
   );
 }
 
-function ProjectTimelineItem({ project, index, total }) {
+function ProjectTimelineItem({ project, index }) {
   const isReversed = index % 2 === 1;
   const links = getProjectLinks(project);
   const brief = projectRecruiterBriefs[project.id] ?? getFallbackBrief(project);
@@ -75,7 +74,7 @@ function ProjectTimelineItem({ project, index, total }) {
 
       <div className="project-timeline-copy">
         <p className="project-timeline-kicker">
-          {formatCount(index + 1)} / {formatCount(total)} - {project.createdAt}
+          {project.createdAt}
         </p>
         <h3>{project.title}</h3>
 

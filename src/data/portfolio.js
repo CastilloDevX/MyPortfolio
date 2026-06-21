@@ -280,7 +280,7 @@ export const featuredProjects = [
   {
     id: "desayunos-canuto",
     sortDate: "2026-05-24",
-    createdAt: "Mayo 2026",
+    createdAt: "24 de Mayo de 2026",
     title: "Desayunos Canuto",
     category: "Landing page para negocio local",
     status: "Desplegado oficialmente",
@@ -305,7 +305,7 @@ export const featuredProjects = [
   {
     id: "air-brey-services",
     sortDate: "2026-05-23",
-    createdAt: "Mayo 2026",
+    createdAt: "23 de Mayo de 2026",
     title: "Air Brey Services",
     category: "Landing page para servicios HVAC",
     status: "Desplegado",
@@ -330,7 +330,7 @@ export const featuredProjects = [
   {
     id: "quick-coins",
     sortDate: "2026-03-27",
-    createdAt: "Marzo 2026",
+    createdAt: "27 de Marzo de 2026",
     title: "Quick Coins",
     category: "Videojuego competitivo en Roblox",
     status: "Desplegado",
@@ -354,7 +354,7 @@ export const featuredProjects = [
   {
     id: "season-service",
     sortDate: "2025-02-18",
-    createdAt: "Febrero 2025",
+    createdAt: "18 de Febrero de 2025",
     title: "Season Service",
     category: "Modulo Open Source para Roblox",
     status: "Open Source",
@@ -377,7 +377,7 @@ export const featuredProjects = [
   {
     id: "movikoox",
     sortDate: "2025-12-14",
-    createdAt: "Diciembre 2025",
+    createdAt: "14 de Diciembre de 2025",
     title: "Movikoox",
     category: "Ecosistema de movilidad urbana",
     status: "Desplegado",
@@ -405,7 +405,7 @@ export const featuredProjects = [
   {
     id: "minidbeaver",
     sortDate: "2025-10-15",
-    createdAt: "Noviembre 2025",
+    createdAt: "15 de Octubre de 2025",
     title: "MiniDBeaver",
     category: "Herramienta de escritorio",
     status: "Prototipo",
@@ -429,7 +429,7 @@ export const featuredProjects = [
   {
     id: "space-vision",
     sortDate: "2025-11-04",
-    createdAt: "Novimebre 2025",
+    createdAt: "4 de Noviembre de 2025",
     title: "SpaceVision",
     category: "Proyecto NASA Space Apps",
     status: "Hackathon NASA - Top 4",
@@ -454,7 +454,7 @@ export const featuredProjects = [
   {
     id: "mortal-run",
     sortDate: "2023-09-30",
-    createdAt: "Septiembre 2023",
+    createdAt: "30 de Septiembre de 2023",
     title: "Mortal Run",
     category: "Roblox Game",
     status: "Desplegado",
@@ -478,7 +478,7 @@ export const featuredProjects = [
   {
     id: "im-king",
     sortDate: "2020-07-26",
-    createdAt: "Julio 2020",
+    createdAt: "26 de Julio de 2020",
     title: "I'm King",
     category: "Roblox Game",
     status: "Gamejam Roblox - Campeon Internacional 2021",
@@ -502,7 +502,7 @@ export const featuredProjects = [
   {
     id: "electrorbit",
     sortDate: "2024-11-16",
-    createdAt: "Noviembre 2024",
+    createdAt: "16 de Noviembre de 2024",
     title: "Electrorbit",
     category: "Herramienta visual de quimica",
     status: "Desplegado",
@@ -526,7 +526,7 @@ export const featuredProjects = [
   {
     id: "salud-plus",
     sortDate: "2024-04-04",
-    createdAt: "Abril 2024",
+    createdAt: "4 de Abril de 2024",
     title: "SaludPlus",
     category: "API medica de hackathon",
     status: "Hackathon Talend Land 2024",
@@ -549,7 +549,7 @@ export const featuredProjects = [
   {
     id: "beesmath",
     sortDate: "2023-09-24",
-    createdAt: "Septiembre 2023",
+    createdAt: "24 de Septiembre de 2023",
     title: "Beesmath",
     category: "Experiencia web educativa",
     status: "Desplegado",
@@ -573,7 +573,7 @@ export const featuredProjects = [
   {
     id: "gericam",
     sortDate: "2023-05-18",
-    createdAt: "Mayo 2023",
+    createdAt: "18 de Mayo de 2023",
     title: "GeriCAM",
     category: "App de asistencia medica para adultos mayores",
     status: "Hackathon TCS Empowers 2023 - Top 4",
@@ -597,7 +597,7 @@ export const featuredProjects = [
   {
     id: "educamp",
     sortDate: "2022-06-10",
-    createdAt: "Junio 2022",
+    createdAt: "10 de Junio de 2022",
     title: "EduCamp",
     category: "Proyecto de hackathon educativo",
     status: "Hackathon TCS Empowers - Top #1",
