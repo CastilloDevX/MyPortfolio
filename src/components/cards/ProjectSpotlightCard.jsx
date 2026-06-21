@@ -73,7 +73,10 @@ export default function ProjectSpotlightCard({ project }) {
           {projectLinks.length ? (
             <div className="mt-5 flex flex-wrap gap-3">
               {projectLinks.map((link) => (
-                <ProjectActionLink key={link.url} href={link.url} link={link} />
+                <ProjectActionLink
+                  key={`${link.type}-${link.url ?? link.label}`}
+                  link={link}
+                />
               ))}
             </div>
           ) : null}
@@ -160,12 +163,26 @@ function StatusBadge({ label, meta }) {
   );
 }
 
-function ProjectActionLink({ href, link }) {
+function ProjectActionLink({ link }) {
+  if (!link.url && link.type === "coming-soon") {
+    return (
+      <span
+        aria-disabled="true"
+        className="inline-flex min-h-11 items-center text-sm font-semibold text-white/78"
+      >
+        {link.label}
+      </span>
+    );
+  }
+
+  const Component = link.url ? "a" : "span";
+  const interactiveProps = link.url
+    ? { href: link.url, target: "_blank", rel: "noreferrer" }
+    : { "aria-disabled": "true" };
+
   return (
-    <a
-      href={href}
-      target="_blank"
-      rel="noreferrer"
+    <Component
+      {...interactiveProps}
       className="group inline-flex min-w-[175px] max-w-full items-center gap-3 rounded-[1.15rem] px-3.5 py-3 text-left text-white transition duration-300 hover:-translate-y-1 hover:scale-[1.015]"
       style={{
         background: `linear-gradient(135deg, ${toAlpha(link.color, 0.22)}, ${toAlpha(
@@ -193,7 +210,7 @@ function ProjectActionLink({ href, link }) {
           {link.label}
         </span>
       </span>
-    </a>
+    </Component>
   );
 }
 
@@ -209,7 +226,7 @@ function resolveProjectLink(link, variant, accent) {
 }
 
 function inferLinkType(link, variant) {
-  const value = `${link.label ?? ""} ${link.url ?? ""}`.toLowerCase();
+  const value = normalizeSearchText(`${link.label ?? ""} ${link.url ?? ""}`);
 
   if (variant === "github" || value.includes("github")) {
     return "repo";
@@ -255,6 +272,10 @@ function normalizeLinkType(type) {
     return "docs";
   }
 
+  if (value === "comingsoon" || value === "coming-soon" || value === "soon") {
+    return "coming-soon";
+  }
+
   return value;
 }
 
@@ -269,7 +290,7 @@ function getLinkTypeMeta(type, accent) {
       };
     case "docs":
       return {
-        typeLabel: "Documentacion",
+        typeLabel: "Documentación",
         color: "#38bdf8",
         colorAlt: "#0ea5e9",
         icon: "document",
@@ -287,6 +308,13 @@ function getLinkTypeMeta(type, accent) {
         color: "#34d399",
         colorAlt: "#22c55e",
         icon: "globe",
+      };
+    case "coming-soon":
+      return {
+        typeLabel: "Estado",
+        color: "#f59e0b",
+        colorAlt: "#facc15",
+        icon: "sparkles",
       };
     default:
       return {
@@ -342,7 +370,7 @@ function getStatusMeta(status, explicitType, accent) {
 }
 
 function inferStatusType(status) {
-  const value = `${status ?? ""}`.toLowerCase();
+  const value = normalizeSearchText(`${status ?? ""}`);
 
   if (value.includes("open source")) {
     return "open-source";
@@ -410,4 +438,11 @@ function toAlpha(hex, alpha) {
   const blue = Number.parseInt(normalized.slice(4, 6), 16);
 
   return `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+}
+
+function normalizeSearchText(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }

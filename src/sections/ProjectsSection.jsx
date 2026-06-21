@@ -21,7 +21,7 @@ export default function ProjectsSection() {
   return (
     <PageSection id="projects" className="project-timeline-section">
       <SectionTitle>Proyectos Destacados</SectionTitle>
-      <div className="project-timeline" aria-label="Linea de tiempo de proyectos destacados">
+      <div className="project-timeline" aria-label="Línea de tiempo de proyectos destacados">
         {projects.map((project, index) => (
           <ProjectTimelineItem
             key={project.id}
@@ -85,19 +85,31 @@ function ProjectTimelineItem({ project, index }) {
         {links.length ? (
           <div className="project-timeline-footer">
             <div className="project-timeline-links" aria-label={`Enlaces de ${project.title}`}>
-              {links.map((link) => (
-                <a
-                  key={`${link.type}-${link.url}`}
-                  className={`project-timeline-link is-${link.type}`}
-                  href={link.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${project.title}: ${link.tooltip}`}
-                  title={link.tooltip}
-                >
-                  <SolidIcon name={link.icon} className="h-5 w-5" />
-                </a>
-              ))}
+              {links.map((link) =>
+                link.url ? (
+                  <a
+                    key={`${link.type}-${link.url}`}
+                    className={`project-timeline-link is-${link.type}`}
+                    href={link.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${project.title}: ${link.tooltip}`}
+                    title={link.tooltip}
+                  >
+                    <SolidIcon name={link.icon} className="h-5 w-5" />
+                  </a>
+                ) : (
+                  <span
+                    key={`${link.type}-${link.label}`}
+                    className={`project-timeline-link is-${link.type}`}
+                    aria-label={`${project.title}: ${link.tooltip}`}
+                    aria-disabled="true"
+                    title={link.tooltip}
+                  >
+                    <span className="project-timeline-link-label">{link.label}</span>
+                  </span>
+                )
+              )}
             </div>
           </div>
         ) : null}
@@ -122,7 +134,9 @@ function getProjectLinks(project) {
   );
   const previews = (project.previews ?? []).map((link) => normalizeProjectLink(link, "preview"));
 
-  return [...repositories, ...previews].filter((link) => link.url);
+  return [...repositories, ...previews].filter(
+    (link) => link.url || link.type === "coming-soon"
+  );
 }
 
 function getFallbackBrief(project) {
@@ -130,7 +144,7 @@ function getFallbackBrief(project) {
 
   return [
     {
-      text: `${compactText(summary, 220)} Demuestra criterio para convertir una necesidad real en una solucion funcional, presentable y mantenible.`,
+      text: `${compactText(summary, 220)} Demuestra criterio para convertir una necesidad real en una solución funcional, presentable y mantenible.`,
     },
   ];
 }
@@ -181,7 +195,7 @@ function normalizeProjectLink(link, fallbackType) {
 }
 
 function inferLinkType(label, url, fallbackType) {
-  const value = `${label ?? ""} ${url ?? ""}`.toLowerCase();
+  const value = normalizeSearchText(`${label ?? ""} ${url ?? ""}`);
 
   if (value.includes("github.com") || value.includes("github")) {
     return "github";
@@ -223,6 +237,10 @@ function normalizeLinkType(type) {
     return "site";
   }
 
+  if (value === "comingsoon" || value === "coming-soon" || value === "soon") {
+    return "coming-soon";
+  }
+
   return value;
 }
 
@@ -236,6 +254,8 @@ function getLinkIcon(type) {
       return "gamepad";
     case "site":
       return "globe";
+    case "coming-soon":
+      return "sparkles";
     default:
       return "externalLink";
   }
@@ -244,9 +264,10 @@ function getLinkIcon(type) {
 function getLinkTooltip(type, label) {
   const fallback = {
     github: "Repositorio",
-    docs: "Documentacion",
+    docs: "Documentación",
     game: "Jugar proyecto",
     site: "Sitio en vivo",
+    "coming-soon": "Próximamente",
   };
 
   return label || fallback[type] || "Abrir enlace";
@@ -266,4 +287,11 @@ function compactText(value, maxLength) {
 
 function formatCount(value) {
   return String(value).padStart(2, "0");
+}
+
+function normalizeSearchText(value) {
+  return value
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "");
 }

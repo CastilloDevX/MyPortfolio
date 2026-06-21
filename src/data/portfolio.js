@@ -47,15 +47,16 @@ import quickCoinsPreview from "../assets/images/previews/QuickCoins.png";
 import canutoPreview from "../assets/images/previews/Canuto.png";
 import airBreyPreview from "../assets/images/previews/AirBrey.png";
 import geriCAMPreview from "../assets/images/previews/GeriCAM.png";
+import smileyVisionPreview from "../assets/images/previews/SmileyVision.png";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
-  name: ["Jose Manuel", "Castillo Queh"],
+  name: ["José Manuel", "Castillo Queh"],
   image: meImage,
 };
 
 export const aboutContent =
-  "Soy Jose Manuel Castillo Queh, un desarrollador de software apasionado por la innovación y la resolución de problemas sociales. Desde mis primeras líneas de código en 2018 hasta los proyectos actuales, he participado en hackathones nacionales e internacionales y he creado herramientas que facilitan la vida de los usuarios. Mi especialización incluye Java, Python y tecnologías web como React, NextJS, Tailwind CSS y JavaScript, así como desarrollo de juegos en Roblox (LuaU). Mi enfoque combina creatividad, investigación y compromiso social.";
+  "Soy José Manuel Castillo Queh, un desarrollador de software apasionado por la innovación y la resolución de problemas sociales. Desde mis primeras líneas de código en 2018 hasta los proyectos actuales, he participado en hackathones nacionales e internacionales y he creado herramientas que facilitan la vida de los usuarios. Mi especialización incluye Java, Python y tecnologías web como React, NextJS, Tailwind CSS y JavaScript, así como desarrollo de juegos en Roblox (LuaU). Mi enfoque combina creatividad, investigación y compromiso social.";
 
 export const achievements = [
   {
@@ -183,105 +184,137 @@ export const services = [
 
 export const projectRecruiterBriefs = {
   "desayunos-canuto": brief(
-    "Landing page comercial para un negocio local de desayunos. La pieza ordena oferta, confianza y contacto en una experiencia clara para convertir curiosidad en visita o pedido. Logre llevar el negocio a una ",
-    emphasis("URL publica 24/7"),
-    ", con la informacion critica del servicio en una sola ruta y lista para compartirse en redes, WhatsApp y buscadores. Entregue una solucion enfocada en ",
-    emphasis("lanzamiento, claridad comercial y reduccion de friccion"),
-    " para un cliente no tecnico."
+    "Landing page comercial para un negocio local de desayunos. La pieza ordena oferta, confianza y contacto en una experiencia clara para convertir curiosidad en visita o pedido. Logré llevar el negocio a una ",
+    emphasis("URL pública 24/7"),
+    ", con la información crítica del servicio en una sola ruta y lista para compartirse en redes, WhatsApp y buscadores. Entregué una solución enfocada en ",
+    emphasis("lanzamiento, claridad comercial y reducción de fricción"),
+    " para un cliente no técnico."
   ),
   "air-brey-services": brief(
-    "Sitio web para servicios HVAC en Broward County, construido para explicar servicios, generar confianza y abrir contacto comercial sin pasos innecesarios. Logre construir ",
+    "Sitio web para servicios HVAC en Broward County, construido para explicar servicios, generar confianza y abrir contacto comercial sin pasos innecesarios. Logré construir ",
     emphasis("presencia digital 0 a 1"),
-    ", contacto visible en el primer recorrido y estructura pensada para convertir busquedas locales en solicitudes de estimacion. Entendi el ",
-    emphasis("negocio, mercado local y conversion"),
-    ", no solo implementacion visual."
+    ", contacto visible en el primer recorrido y estructura pensada para convertir búsquedas locales en solicitudes de estimación. Entendí el ",
+    emphasis("negocio, mercado local y conversión"),
+    ", no solo implementación visual."
+  ),
+  "smiley-vision": brief(
+    "Sitio web en desarrollo para Smiley Vision, distribuidora de ópticas con operación en Campeche, Ciudad de México y Mérida. El proyecto busca construir ",
+    emphasis("presencia digital especializada"),
+    " y abrir un canal comercial para aumentar ventas dentro de un nicho óptico específico. La solución prioriza ",
+    emphasis("confianza, posicionamiento regional y conversión"),
+    " mientras prepara el lanzamiento público de la marca."
   ),
   "quick-coins": brief(
-    "Juego competitivo en Roblox con minijuegos, recompensas, tienda y economia interna. Convierte partidas cortas en un ciclo de riesgo, habilidad y premio. Integre varios modos bajo una ",
-    emphasis("misma economia jugable"),
-    ", habilitando monetizacion por recompensas y mas puntos de retencion con retos, tienda y progresion. Combine ",
-    emphasis("gameplay, sistemas economicos y experiencia de usuario"),
+    "Juego competitivo en Roblox con minijuegos, recompensas, tienda y economía interna. Convierte partidas cortas en un ciclo de riesgo, habilidad y premio. Integré varios modos bajo una ",
+    emphasis("misma economía jugable"),
+    ", habilitando monetización por recompensas y más puntos de retención con retos, tienda y progresión. Combiné ",
+    emphasis("gameplay, sistemas económicos y experiencia de usuario"),
     " dentro de una plataforma con restricciones reales."
   ),
   "season-service": brief(
-    "Modulo open source para Roblox que organiza temporadas, progreso y eventos con una API reutilizable para otros desarrolladores. Converti una logica comun de juegos en un modulo ",
+    "Módulo open source para Roblox que organiza temporadas, progreso y eventos con una API reutilizable para otros desarrolladores. Convertí una lógica común de juegos en un módulo ",
     emphasis("documentado, integrable y mantenible"),
-    ", reduciendo trabajo repetitivo para la comunidad. Pense en ",
-    emphasis("APIs, documentacion y adopcion por terceros"),
+    ", reduciendo trabajo repetitivo para la comunidad. Pensé en ",
+    emphasis("APIs, documentación y adopción por terceros"),
     ", no solo en resolver mi propio caso."
   ),
   movikoox: brief(
-    "Plataforma ciudadana para consultar transporte publico en Campeche con enfoque gratuito, local y pensado para resolver una necesidad diaria. Centralice rutas, paradas y consulta en productos web separados, transformando ",
-    emphasis("informacion dispersa"),
-    " en un servicio consumible por usuarios y aplicaciones. Detecte una necesidad publica, separe ",
+    "Plataforma ciudadana para consultar transporte público en Campeche con enfoque gratuito, local y pensado para resolver una necesidad diaria. Centralicé rutas, paradas y consulta en productos web separados, transformando ",
+    emphasis("información dispersa"),
+    " en un servicio consumible por usuarios y aplicaciones. Detecté una necesidad pública, separé ",
     emphasis("frontend/API"),
-    " y construi una base escalable para ciudad."
+    " y construí una base escalable para ciudad."
   ),
   minidbeaver: brief(
-    "Herramienta de escritorio experimental para explorar bases de datos y consultas SQL con una experiencia mas ligera que clientes tradicionales. Acorte el flujo de validacion al enfocarme en ",
-    emphasis("conexiones, estructura y consultas rapidas"),
+    "Herramienta de escritorio experimental para explorar bases de datos y consultas SQL con una experiencia más ligera que clientes tradicionales. Acorté el flujo de validación al enfocarme en ",
+    emphasis("conexiones, estructura y consultas rápidas"),
     " dentro de una interfaz directa. Aplique criterio de producto a ",
-    emphasis("herramientas internas y productividad tecnica"),
+    emphasis("herramientas internas y productividad técnica"),
     "."
   ),
   "space-vision": brief(
-    "Plataforma educativa interactiva creada para NASA Space Apps Challenge, orientada a convertir datos cientificos en una experiencia STEM visual. Alcance ",
+    "Plataforma educativa interactiva creada para NASA Space Apps Challenge, orientada a convertir datos científicos en una experiencia STEM visual. Alcancé ",
     emphasis("Top 4 en NASA Space Apps"),
-    ", validando ejecucion tecnica, narrativa cientifica y capacidad de entrega en hackathon. Traduje informacion compleja en un producto comprensible para ",
-    emphasis("aprendizaje y divulgacion"),
+    ", validando ejecución técnica, narrativa científica y capacidad de entrega en hackathon. Traduje información compleja en un producto comprensible para ",
+    emphasis("aprendizaje y divulgación"),
     "."
   ),
   "mortal-run": brief(
-    "Juego de obstaculos y plataformas con movimiento 2D/3D, habilidades y mapas que premian dominio, rutas y reflejos. Aterrice ",
-    emphasis("diseno de niveles, control de personaje, feedback visual y loops competitivos"),
-    " dentro de una experiencia jugable. Conecte mecanicas, sensacion de juego y progresion en un producto con identidad propia."
+    "Juego de obstáculos y plataformas con movimiento 2D/3D, habilidades y mapas que premian dominio, rutas y reflejos. Aterricé ",
+    emphasis("diseño de niveles, control de personaje, feedback visual y loops competitivos"),
+    " dentro de una experiencia jugable. Conecté mecánicas, sensación de juego y progresión en un producto con identidad propia."
   ),
   "im-king": brief(
     "Juego de arena competitivo donde el objetivo es coronarse o quitar el trono a otro jugador mediante ataque, defensa y posicionamiento. El proyecto fue ",
-    emphasis("campeon internacional en Roblox Gamejam DevRel 2021"),
-    ", destacando por un loop simple, competitivo y memorable. Demostre creatividad bajo presion, ",
+    emphasis("campeón internacional en Roblox Gamejam DevRel 2021"),
+    ", destacando por un loop simple, competitivo y memorable. Demostré creatividad bajo presión, ",
     emphasis("criterio de gameplay"),
     " y capacidad de destacar entre equipos."
   ),
   electrorbit: brief(
-    "Herramienta visual de quimica para consultar elementos y configuracion electronica con una navegacion simple y accesible. Converti una consulta academica abstracta en una ",
+    "Herramienta visual de química para consultar elementos y configuración electrónica con una navegación simple y accesible. Convertí una consulta académica abstracta en una ",
     emphasis("experiencia visual inmediata"),
-    " para estudiantes y curiosos. Transforme contenido tecnico en interfaces educativas faciles de explorar."
+    " para estudiantes y curiosos. Transformé contenido técnico en interfaces educativas fáciles de explorar."
   ),
   "salud-plus": brief(
-    "API medica de hackathon para convertir archivos DICOM en imagenes y GIFs accesibles desde dispositivos comunes. Reduje barreras de visualizacion clinica al evitar infraestructura pesada para revisar estudios en ",
-    emphasis("formatos mas simples"),
-    ". Identifique cuellos de botella de interoperabilidad y los converti en servicios consumibles."
+    "API médica de hackathon para convertir archivos DICOM en imágenes y GIFs accesibles desde dispositivos comunes. Reduje barreras de visualización clínica al evitar infraestructura pesada para revisar estudios en ",
+    emphasis("formatos más simples"),
+    ". Identifiqué cuellos de botella de interoperabilidad y los convertí en servicios consumibles."
   ),
   beesmath: brief(
-    "Experiencia web educativa para ninos de 3 a 6 anos enfocada en conteo, interaccion amable y recursos visuales/sonoros. Adapte contenido temprano a una interfaz ludica, con ",
-    emphasis("feedback pensado para sostener atencion"),
-    " y aprendizaje inicial. Disene para un usuario real con necesidades cognitivas concretas, no para una demo generica."
+    "Experiencia web educativa para niños de 3 a 6 años enfocada en conteo, interacción amable y recursos visuales/sonoros. Adapté contenido temprano a una interfaz lúdica, con ",
+    emphasis("feedback pensado para sostener atención"),
+    " y aprendizaje inicial. Diseñé para un usuario real con necesidades cognitivas concretas, no para una demo genérica."
   ),
   gericam: brief(
-    "App de asistencia para adultos mayores creada en Hackathon TCS Empowers 2023. La solucion permite marcar alertas para pedir ayuda medica o apoyo de personal de gericultura de CEYCTEC cuando una persona mayor esta en riesgo, tiene una emergencia o necesita acompanamiento inmediato. Alcanzamos ",
+    "App de asistencia para adultos mayores creada en Hackathon TCS Empowers 2023. La solución permite marcar alertas para pedir ayuda médica o apoyo de personal de gericultura de CEYCTEC cuando una persona mayor está en riesgo, tiene una emergencia o necesita acompañamiento inmediato. Alcanzamos ",
     emphasis("Top 4 nacional"),
-    ", colaboracion con ",
+    ", colaboración con ",
     emphasis("INAPAM"),
     " para enfocar correctamente el problema y obtuvimos el reconocimiento por la gobernadora del estado de Campeche 2023. El proyecto demuestra capacidad para convertir una necesidad sensible en un producto de ",
-    emphasis("impacto social, validacion institucional y respuesta critica"),
+    emphasis("impacto social, validación institucional y respuesta crítica"),
     "."
   ),
   educamp: brief(
-    "App educativa de hackathon para lectura, comprension y aritmetica basica con rutas, videos, actividades y minijuegos. Gane ",
+    "App educativa de hackathon para lectura, comprensión y aritmética básica con rutas, videos, actividades y minijuegos. Gané ",
     emphasis("Top #1 en Hackathon TCS Empowers"),
-    " y consegui respaldo institucional para atacar rezago educativo. Uni producto, ",
-    emphasis("impacto social, validacion externa y ejecucion rapida"),
+    " y conseguí respaldo institucional para atacar rezago educativo. Uní producto, ",
+    emphasis("impacto social, validación externa y ejecución rápida"),
     "."
   ),
 };
 
 export const featuredProjects = [
   {
+    id: "smiley-vision",
+    sortDate: "2026-06-21",
+    createdAt: "?",
+    title: "Smiley Vision",
+    category: "Sitio web para distribuidora de ópticas",
+    status: "En desarrollo",
+    statusType: "prototype",
+    accent: "cyan",
+    previewAccent: "#22d3ee",
+    previewAccentAlt: "#facc15",
+    previewImage: smileyVisionPreview,
+    previewSurface:
+      "radial-gradient(circle at 18% 18%, rgba(34,211,238,0.28), transparent 24%), radial-gradient(circle at 78% 20%, rgba(250,204,21,0.18), transparent 22%), linear-gradient(135deg, rgba(8,30,38,0.96), rgba(15,57,68,0.9) 52%, rgba(7,12,18,0.98))",
+    previewLabel: "Smiley Vision",
+    previewNote:
+      "Banner del sitio web en desarrollo para la distribuidora de ópticas Smiley Vision.",
+    summary:
+      "Smiley Vision es un sitio web en desarrollo para una distribuidora de ópticas que opera en Campeche, Ciudad de México y Mérida. La plataforma está pensada para crear presencia digital, comunicar la oferta de la marca y aumentar ventas dentro de un nicho especializado, con una experiencia enfocada en confianza, claridad comercial y crecimiento regional.",
+    stack: ["React", "Vite", "Sitio web", "Ópticas"],
+    repositories: [],
+    previews: [
+      projectLink("Próximamente", null, "coming-soon"),
+    ],
+  },
+  {
     id: "desayunos-canuto",
     sortDate: "2026-05-24",
-    createdAt: "24 de Mayo de 2026",
-    title: "Desayunos Canuto",
+    createdAt: "24 de mayo de 2026",
+    title: "El mañanero con Canuto",
     category: "Landing page para negocio local",
     status: "Desplegado oficialmente",
     statusType: "live",
@@ -291,11 +324,11 @@ export const featuredProjects = [
     previewImage: canutoPreview,
     previewSurface:
       "radial-gradient(circle at 16% 18%, rgba(245,158,11,0.28), transparent 24%), radial-gradient(circle at 82% 22%, rgba(239,68,68,0.18), transparent 22%), linear-gradient(135deg, rgba(43,24,10,0.96), rgba(73,37,18,0.88) 52%, rgba(16,10,8,0.98))",
-    previewLabel: "Preview de Desayunos Canuto",
+    previewLabel: "Vista previa de El mañanero con Canuto",
     previewNote:
       "Captura del sitio lanzado oficialmente para presentar la oferta y facilitar el contacto del negocio.",
     summary:
-      "Desayunos Canuto es una landing page publicada oficialmente para presentar la oferta de desayunos, reforzar la identidad visual del negocio y facilitar que nuevos clientes encuentren informacion clara sobre el servicio. El proyecto esta pensado como una experiencia directa, visual y optimizada para conversion.",
+      "El mañanero con Canuto es una landing page publicada oficialmente para presentar la oferta de desayunos, reforzar la identidad visual del negocio y facilitar que nuevos clientes encuentren información clara sobre el servicio. El proyecto está pensado como una experiencia directa, visual y optimizada para conversión.",
     stack: ["React", "Vite", "Landing page", "Negocio local"],
     repositories: [],
     previews: [
@@ -305,7 +338,7 @@ export const featuredProjects = [
   {
     id: "air-brey-services",
     sortDate: "2026-05-23",
-    createdAt: "23 de Mayo de 2026",
+    createdAt: "23 de mayo de 2026",
     title: "Air Brey Services",
     category: "Landing page para servicios HVAC",
     status: "Desplegado",
@@ -316,11 +349,11 @@ export const featuredProjects = [
     previewImage: airBreyPreview,
     previewSurface:
       "radial-gradient(circle at 18% 18%, rgba(99,219,232,0.3), transparent 24%), radial-gradient(circle at 80% 20%, rgba(47,70,255,0.22), transparent 24%), linear-gradient(135deg, rgba(6,20,34,0.96), rgba(8,18,56,0.9) 54%, rgba(5,8,18,0.98))",
-    previewLabel: "Preview de Air Brey Services",
+    previewLabel: "Vista previa de Air Brey Services",
     previewNote:
-      "Captura del hero principal con la propuesta de servicios HVAC y llamada a solicitar cotizacion.",
+      "Captura del hero principal con la propuesta de servicios HVAC y llamada a solicitar cotización.",
     summary:
-      "Air Brey Services es una landing page para una empresa de aire acondicionado y servicios HVAC en Broward County. La experiencia prioriza confianza, claridad comercial y una llamada a la accion visible para solicitar estimaciones, con una direccion visual tecnica y profesional alineada al sector.",
+      "Air Brey Services es una landing page para una empresa de aire acondicionado y servicios HVAC en Broward County. La experiencia prioriza confianza, claridad comercial y una llamada a la acción visible para solicitar estimaciones, con una dirección visual técnica y profesional alineada al sector.",
     stack: ["HTML", "CSS", "JavaScript", "Landing page"],
     repositories: [],
     previews: [
@@ -330,7 +363,7 @@ export const featuredProjects = [
   {
     id: "quick-coins",
     sortDate: "2026-03-27",
-    createdAt: "27 de Marzo de 2026",
+    createdAt: "27 de marzo de 2026",
     title: "Quick Coins",
     category: "Videojuego competitivo en Roblox",
     status: "Desplegado",
@@ -340,12 +373,12 @@ export const featuredProjects = [
     previewImage: quickCoinsPreview,
     previewSurface:
       "radial-gradient(circle at 16% 18%, rgba(245,158,11,0.32), transparent 24%), radial-gradient(circle at 82% 20%, rgba(250,204,21,0.22), transparent 24%), linear-gradient(135deg, rgba(45,25,10,0.96), rgba(72,43,12,0.9) 50%, rgba(12,10,8,0.98))",
-    previewLabel: "Espacio para preview de Quick Coins",
+    previewLabel: "Espacio para vista previa de Quick Coins",
     previewNote:
       "Este espacio queda listo para colocar una portada del juego, capturas de minijuegos o escenas del sistema de recompensas.",
     summary:
-      "Quick Coins es un juego competitivo donde varios jugadores se enfrentan en minijuegos como TicTacToe, disparos estilo Rivals, parkour y busqueda del tesoro para ganar recompensas mientras se divierten. Cada ronda tiene un costo de entrada, pero quien domina el reto se queda con el premio, creando una experiencia intensa que mezcla habilidad, riesgo y emocion. El proyecto tambien integra tienda, desafios constantes y un sistema competitivo pensado para mantener el progreso activo y reforzar la propuesta de valor para la comunidad.",
-    stack: ["Roblox", "Minijuegos", "Sistema competitivo", "Economia ingame"],
+      "Quick Coins es un juego competitivo donde varios jugadores se enfrentan en minijuegos como TicTacToe, disparos estilo Rivals, parkour y búsqueda del tesoro para ganar recompensas mientras se divierten. Cada ronda tiene un costo de entrada, pero quien domina el reto se queda con el premio, creando una experiencia intensa que mezcla habilidad, riesgo y emoción. El proyecto también integra tienda, desafíos constantes y un sistema competitivo pensado para mantener el progreso activo y reforzar la propuesta de valor para la comunidad.",
+    stack: ["Roblox", "Minijuegos", "Sistema competitivo", "Economía ingame"],
     repositories: [],
     previews: [
       projectLink("Jugar ahora", "https://www.roblox.com/es/games/89338459348708/Quick-Coins")
@@ -354,30 +387,30 @@ export const featuredProjects = [
   {
     id: "season-service",
     sortDate: "2025-02-18",
-    createdAt: "18 de Febrero de 2025",
+    createdAt: "18 de febrero de 2025",
     title: "Season Service",
-    category: "Modulo Open Source para Roblox",
+    category: "Módulo Open Source para Roblox",
     status: "Open Source",
     accent: "cyan",
     previewAccent: "#67e8f9",
     previewSurface:
       "radial-gradient(circle at 14% 18%, rgba(103,232,249,0.34), transparent 26%), radial-gradient(circle at 82% 22%, rgba(59,130,246,0.28), transparent 24%), linear-gradient(135deg, rgba(8,24,40,0.96), rgba(10,18,36,0.9) 50%, rgba(5,8,18,0.98))",
-    previewLabel: "Espacio para screenshot del modulo",
+    previewLabel: "Espacio para screenshot del módulo",
     previewNote:
-      "Aqui podras colocar una captura de la documentacion, del API o del flujo de recompensas.",
+      "Aquí podrás colocar una captura de la documentación, del API o del flujo de recompensas.",
     previewImage: seasonServicePreview,
     summary:
-      "Season Service es un modulo open source que busca darle a la comunidad de Roblox una base limpia para manejar temporadas, progreso y eventos con una API clara. Su enfoque esta en reutilizacion, orden y documentacion para que otros desarrolladores puedan integrarlo rapido en sus juegos.",
+      "Season Service es un módulo open source que busca darle a la comunidad de Roblox una base limpia para manejar temporadas, progreso y eventos con una API clara. Su enfoque está en reutilización, orden y documentación para que otros desarrolladores puedan integrarlo rápido en sus juegos.",
     stack: ["LuaU", "Roblox", "Open Source", "Docs"],
     repositories: [],
     previews: [
-      projectLink("Documentacion", "https://mratomdev.vercel.app/docs/season-service"),
+      projectLink("Documentación", "https://mratomdev.vercel.app/docs/season-service"),
     ],
   },
   {
     id: "movikoox",
     sortDate: "2025-12-14",
-    createdAt: "14 de Diciembre de 2025",
+    createdAt: "14 de diciembre de 2025",
     title: "Movikoox",
     category: "Ecosistema de movilidad urbana",
     status: "Desplegado",
@@ -386,26 +419,26 @@ export const featuredProjects = [
     previewAccentAlt: "#f7d9b0",
     previewSurface:
       "radial-gradient(circle at 18% 20%, rgba(159,34,65,0.28), transparent 24%), radial-gradient(circle at 78% 20%, rgba(247,217,176,0.18), transparent 22%), linear-gradient(135deg, rgba(33,12,22,0.96), rgba(68,20,38,0.9) 52%, rgba(13,10,11,0.98))",
-    previewLabel: "Espacio para preview de app y API",
+    previewLabel: "Espacio para vista previa de app y API",
     previewNote:
       "Este bloque queda listo para mostrar capturas de la app cliente, el mapa o el panel de endpoints.",
     previewImage: movikooxPreview,
     summary:
-      "Movikoox nace como una iniciativa ciudadana ante la llegada de los nuevos camiones en Campeche y la falta de informacion clara para la gente. La app ayuda a consultar el transporte publico de forma gratuita, moderna y local, porque fue pensada especificamente para resolver una necesidad real de movilidad en Campeche.",
+      "Movikoox nace como una iniciativa ciudadana ante la llegada de los nuevos camiones en Campeche y la falta de información clara para la gente. La app ayuda a consultar el transporte público de forma gratuita, moderna y local, porque fue pensada específicamente para resolver una necesidad real de movilidad en Campeche.",
     stack: ["JavaScript", "Frontend", "API REST", "Vercel"],
     repositories: [
       projectLink("GitHub API", "https://github.com/CastilloDevX/movikoox"),
       projectLink("GitHub App", "https://github.com/CastilloDevX/koox"),
     ],
     previews: [
-      projectLink("Website", "https://movikoox.vercel.app"),
+      projectLink("Sitio web", "https://movikoox.vercel.app"),
       projectLink("App en vivo", "https://movikooxweb.vercel.app"),
     ],
   },
   {
     id: "minidbeaver",
     sortDate: "2025-10-15",
-    createdAt: "15 de Octubre de 2025",
+    createdAt: "15 de octubre de 2025",
     title: "MiniDBeaver",
     category: "Herramienta de escritorio",
     status: "Prototipo",
@@ -416,10 +449,10 @@ export const featuredProjects = [
       "radial-gradient(circle at 18% 20%, rgba(111,78,55,0.32), transparent 26%), radial-gradient(circle at 80% 20%, rgba(176,137,104,0.2), transparent 24%), linear-gradient(135deg, rgba(33,22,17,0.96), rgba(64,42,30,0.9) 54%, rgba(12,9,8,0.98))",
     previewLabel: "Espacio para screenshot del cliente SQL",
     previewNote:
-      "Puedes poner aqui una captura de tablas, conexiones o resultados de consulta.",
+      "Puedes poner aquí una captura de tablas, conexiones o resultados de consulta.",
     previewImage: miniDBeaverPreview,
     summary:
-      "MiniDBeaver es una propuesta de herramienta de escritorio inspirada en flujos de trabajo de clientes SQL como DBeaver, pero orientada a una experiencia mas ligera, directa y experimental. Su valor esta en simplificar conexiones, exploracion de estructuras y validacion rapida de consultas.",
+      "MiniDBeaver es una propuesta de herramienta de escritorio inspirada en flujos de trabajo de clientes SQL como DBeaver, pero orientada a una experiencia más ligera, directa y experimental. Su valor está en simplificar conexiones, exploración de estructuras y validación rápida de consultas.",
     stack: ["Java", "SQL", "Desktop UI", "Productividad"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/MiniDBeaver"),
@@ -429,7 +462,7 @@ export const featuredProjects = [
   {
     id: "space-vision",
     sortDate: "2025-11-04",
-    createdAt: "4 de Noviembre de 2025",
+    createdAt: "4 de noviembre de 2025",
     title: "SpaceVision",
     category: "Proyecto NASA Space Apps",
     status: "Hackathon NASA - Top 4",
@@ -439,10 +472,10 @@ export const featuredProjects = [
       "radial-gradient(circle at 18% 18%, rgba(232,121,249,0.3), transparent 26%), radial-gradient(circle at 76% 18%, rgba(96,165,250,0.2), transparent 22%), linear-gradient(135deg, rgba(25,14,43,0.96), rgba(44,20,67,0.88) 54%, rgba(7,10,24,0.98))",
     previewLabel: "Espacio para vista del sitio NASA",
     previewNote:
-      "Aqui podras colocar la portada visual, dashboards solares o escenas del proyecto.",
+      "Aquí podrás colocar la portada visual, dashboards solares o escenas del proyecto.",
     previewImage: spaceVisionPreview,
     summary:
-      "SpaceVision es una plataforma educativa interactiva creada para NASA Space Apps Challenge, pensada para transformar datos cientificos en una experiencia visual clara y atractiva. El proyecto destaca por su enfoque STEM, su capa visual y el resultado obtenido como Top 4.",
+      "SpaceVision es una plataforma educativa interactiva creada para NASA Space Apps Challenge, pensada para transformar datos científicos en una experiencia visual clara y atractiva. El proyecto destaca por su enfoque STEM, su capa visual y el resultado obtenido como Top 4.",
     stack: ["HTML", "CSS", "JavaScript", "STEM"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/SpaceVision"),
@@ -454,7 +487,7 @@ export const featuredProjects = [
   {
     id: "mortal-run",
     sortDate: "2023-09-30",
-    createdAt: "30 de Septiembre de 2023",
+    createdAt: "30 de septiembre de 2023",
     title: "Mortal Run",
     category: "Roblox Game",
     status: "Desplegado",
@@ -468,7 +501,7 @@ export const featuredProjects = [
       "Ideal para poner una captura del nivel, interfaz de juego o momentos de plataforma.",
     previewImage: mortalRunPreview,
     summary:
-      "Mortal Run es un juego de obstaculos y plataformas con mapas en 2D y 3D, accesorios, efectos visibles y habilidades como doble salto, deslizarse, escalar paredes y volar con globo. Propone una mezcla de mecanicas poco comun en este tipo de proyectos, y por eso destaca como una experiencia competitiva que empuja al jugador a mejorar rutas, tiempos y dominio del movimiento.",
+      "Mortal Run es un juego de obstáculos y plataformas con mapas en 2D y 3D, accesorios, efectos visibles y habilidades como doble salto, deslizarse, escalar paredes y volar con globo. Propone una mezcla de mecánicas poco común en este tipo de proyectos, y por eso destaca como una experiencia competitiva que empuja al jugador a mejorar rutas, tiempos y dominio del movimiento.",
     stack: ["Gameplay", "Diseño de niveles", "Web", "Marca personal"],
     repositories: [],
     previews: [
@@ -478,10 +511,10 @@ export const featuredProjects = [
   {
     id: "im-king",
     sortDate: "2020-07-26",
-    createdAt: "26 de Julio de 2020",
+    createdAt: "26 de julio de 2020",
     title: "I'm King",
     category: "Roblox Game",
-    status: "Gamejam Roblox - Campeon Internacional 2021",
+    status: "Gamejam Roblox - Campeón Internacional 2021",
     accent: "amber",
     previewAccent: "#f4c53f",
     previewAccentAlt: "#ff6b2c",
@@ -490,9 +523,9 @@ export const featuredProjects = [
     previewLabel: "Espacio para gameplay de I'm King",
     previewImage: imKingPreview,
     previewNote:
-      "Aqui podras mostrar pantalla inicial, puntuaciones o una escena representativa del juego.",
+      "Aquí podrás mostrar pantalla inicial, puntuaciones o una escena representativa del juego.",
     summary:
-      "I'm King gira alrededor de una idea clara: coronarte o quitarle el trono a otro jugador en rondas donde defender, escapar y atacar cambia por completo tu estrategia. No es comun ver una propuesta tan directa de combate por control del rey con armas y mapas arena, y por eso funciona como un proyecto con identidad propia y un loop competitivo facil de entender.",
+      "I'm King gira alrededor de una idea clara: coronarte o quitarle el trono a otro jugador en rondas donde defender, escapar y atacar cambia por completo tu estrategia. No es común ver una propuesta tan directa de combate por control del rey con armas y mapas arena, y por eso funciona como un proyecto con identidad propia y un loop competitivo fácil de entender.",
     stack: ["Arcade", "Game feel", "Web", "Marca personal"],
     repositories: [],
     previews: [
@@ -502,45 +535,45 @@ export const featuredProjects = [
   {
     id: "electrorbit",
     sortDate: "2024-11-16",
-    createdAt: "16 de Noviembre de 2024",
+    createdAt: "16 de noviembre de 2024",
     title: "Electrorbit",
-    category: "Herramienta visual de quimica",
+    category: "Herramienta visual de química",
     status: "Desplegado",
     accent: "violet",
     previewAccent: "#c084fc",
     previewSurface:
       "radial-gradient(circle at 16% 18%, rgba(192,132,252,0.3), transparent 26%), radial-gradient(circle at 80% 20%, rgba(168,85,247,0.18), transparent 22%), linear-gradient(135deg, rgba(25,12,36,0.96), rgba(43,20,62,0.88) 52%, rgba(11,10,20,0.98))",
-    previewLabel: "Espacio para preview de la tabla periodica",
+    previewLabel: "Espacio para vista previa de la tabla periódica",
     previewImage: electrorbitPreview,
     previewNote:
-      "Reserva este lugar para mostrar la tabla, configuraciones o la navegacion principal.",
+      "Reserva este lugar para mostrar la tabla, configuraciones o la navegación principal.",
     summary:
-      "Electrorbit presenta los elementos quimicos desde una experiencia mas visual y practica, con un enfoque especial en configuracion electronica. El proyecto acerca conceptos de quimica a estudiantes y curiosos mediante una navegacion clara y una consulta inmediata.",
-    stack: ["HTML", "CSS", "JavaScript", "Educacion STEM"],
+      "Electrorbit presenta los elementos químicos desde una experiencia más visual y práctica, con un enfoque especial en configuración electrónica. El proyecto acerca conceptos de química a estudiantes y curiosos mediante una navegación clara y una consulta inmediata.",
+    stack: ["HTML", "CSS", "JavaScript", "Educación STEM"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/electrorbit"),
-      projectLink("Website", "https://castillodevx.github.io/electrorbit/")
+      projectLink("Sitio web", "https://castillodevx.github.io/electrorbit/")
     ],
     previews: [],
   },
   {
     id: "salud-plus",
     sortDate: "2024-04-04",
-    createdAt: "4 de Abril de 2024",
+    createdAt: "4 de abril de 2024",
     title: "SaludPlus",
-    category: "API medica de hackathon",
-    status: "Hackathon Talend Land 2024",
+    category: "API médica de hackathon",
+    status: "Hackathon Talent Land 2024",
     accent: "cyan",
     previewAccent: "#93c5fd",
     previewImage: saludPlusPreview,
     previewSurface:
       "radial-gradient(circle at 18% 18%, rgba(147,197,253,0.3), transparent 24%), radial-gradient(circle at 78% 20%, rgba(34,211,238,0.18), transparent 24%), linear-gradient(135deg, rgba(12,27,43,0.96), rgba(15,40,68,0.88) 52%, rgba(10,14,21,0.98))",
-    previewLabel: "Espacio para preview clinico del proyecto",
+    previewLabel: "Espacio para vista previa clínica del proyecto",
     previewNote:
-      "Aqui podras mostrar flujos de conversion DICOM, galerias o endpoints de la API.",
+      "Aquí podrás mostrar flujos de conversión DICOM, galerías o endpoints de la API.",
     summary:
-      "SaludPlus es una API medica que convierte archivos DICOM en imagenes y GIFs accesibles sin infraestructura pesada. El proyecto fue planteado para simplificar la visualizacion de estudios, mejorar la experiencia del paciente y acercar herramientas modernas al sector salud.",
-    stack: ["API", "DICOM", "Imagenes", "Salud"],
+      "SaludPlus es una API médica que convierte archivos DICOM en imágenes y GIFs accesibles sin infraestructura pesada. El proyecto fue planteado para simplificar la visualización de estudios, mejorar la experiencia del paciente y acercar herramientas modernas al sector salud.",
+    stack: ["API", "DICOM", "Imágenes", "Salud"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/SaludPlus"),
     ],
@@ -549,7 +582,7 @@ export const featuredProjects = [
   {
     id: "beesmath",
     sortDate: "2023-09-24",
-    createdAt: "24 de Septiembre de 2023",
+    createdAt: "24 de septiembre de 2023",
     title: "Beesmath",
     category: "Experiencia web educativa",
     status: "Desplegado",
@@ -560,35 +593,35 @@ export const featuredProjects = [
       "radial-gradient(circle at 16% 18%, rgba(252,211,77,0.34), transparent 26%), radial-gradient(circle at 80% 20%, rgba(251,191,36,0.2), transparent 24%), linear-gradient(135deg, rgba(51,30,11,0.96), rgba(74,40,14,0.88) 52%, rgba(22,14,16,0.98))",
     previewLabel: "Espacio para captura del sitio educativo",
     previewNote:
-      "La zona queda lista para una imagen del home, actividades o dinamicas para ninos.",
+      "La zona queda lista para una imagen del home, actividades o dinámicas para niños.",
     summary:
-      "Beesmath es una pagina web disenada para ninos de 3 a 6 años donde aprender a contar se vuelve una experiencia ludica, amable y facil de explorar. La propuesta combina interacciones claras, feedback visual y recursos sonoros para reforzar el aprendizaje en edades tempranas.",
+      "Beesmath es una página web diseñada para niños de 3 a 6 años donde aprender a contar se vuelve una experiencia lúdica, amable y fácil de explorar. La propuesta combina interacciones claras, feedback visual y recursos sonoros para reforzar el aprendizaje en edades tempranas.",
     stack: ["JavaScript", "HTML", "CSS", "UX infantil"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/beesmath"),
-      projectLink("Website","https://castillodevx.github.io/beesmath/")
+      projectLink("Sitio web","https://castillodevx.github.io/beesmath/")
     ],
     previews: [],
   },
   {
     id: "gericam",
     sortDate: "2023-05-18",
-    createdAt: "18 de Mayo de 2023",
+    createdAt: "18 de mayo de 2023",
     title: "GeriCAM",
-    category: "App de asistencia medica para adultos mayores",
+    category: "App de asistencia médica para adultos mayores",
     status: "Hackathon TCS Empowers 2023 - Top 4",
     accent: "emerald",
     previewAccent: "#22c55e",
     previewAccentAlt: "#38bdf8",
     previewSurface:
       "radial-gradient(circle at 16% 18%, rgba(34,197,94,0.3), transparent 24%), radial-gradient(circle at 80% 20%, rgba(56,189,248,0.22), transparent 24%), linear-gradient(135deg, rgba(8,34,28,0.96), rgba(12,54,66,0.9) 52%, rgba(6,14,20,0.98))",
-    previewLabel: "Preview de GeriCAM",
+    previewLabel: "Vista previa de GeriCAM",
     previewImage: geriCAMPreview,
     previewNote:
       "Banner del proyecto presentado en TCS Empowers 2023 para asistencia y alertas de emergencia en adultos mayores.",
     summary:
-      "GeriCAM es una app de asistencia para adultos mayores que permite pedir ayuda medica o apoyo de personal de gericultura de CEYCTEC ante alertas de riesgo, emergencias o situaciones criticas. El proyecto conto con orientacion de INAPAM para enfocar correctamente la solucion, desperto interes de patrocinadores, obtuvo Top 4 en Hackathon TCS Empowers 2023 y recibio reconocimiento por la gobernadora de Campeche.",
-    stack: ["Hackathon", "Aplicacion movil", "Salud", "Impacto social"],
+      "GeriCAM es una app de asistencia para adultos mayores que permite pedir ayuda médica o apoyo de personal de gericultura de CEYCTEC ante alertas de riesgo, emergencias o situaciones críticas. El proyecto contó con orientación de INAPAM para enfocar correctamente la solución, despertó interés de patrocinadores, obtuvo Top 4 en Hackathon TCS Empowers 2023 y recibió reconocimiento por la gobernadora de Campeche.",
+    stack: ["Hackathon", "Aplicación móvil", "Salud", "Impacto social"],
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/GeriCAM"),
     ],
@@ -597,7 +630,7 @@ export const featuredProjects = [
   {
     id: "educamp",
     sortDate: "2022-06-10",
-    createdAt: "10 de Junio de 2022",
+    createdAt: "10 de junio de 2022",
     title: "EduCamp",
     category: "Proyecto de hackathon educativo",
     status: "Hackathon TCS Empowers - Top #1",
@@ -609,13 +642,13 @@ export const featuredProjects = [
     previewLabel: "Espacio para capturas de EduCamp",
     previewImage: eduCampPreview,
     previewNote:
-      "Puedes mostrar aqui el concepto principal o la landing construida para la propuesta.",
+      "Puedes mostrar aquí el concepto principal o la landing construida para la propuesta.",
     summary:
-      "EduCamp es una app educativa para primeros años de primaria que enseña lectura, comprension lectora y aritmetica basica con una ruta de aprendizaje progresiva, videos, actividades y minijuegos. Surge para atender el rezago educativo y gano fuerza al contar con convenio y respaldo de la Secretaria de Educacion Publica de Campeche, SEDUC, para impulsar su validacion y alcance.",
-    stack: ["Hackathon", "Web", "Presentacion", "Educacion"],
+      "EduCamp es una app educativa para primeros años de primaria que enseña lectura, comprensión lectora y aritmética básica con una ruta de aprendizaje progresiva, videos, actividades y minijuegos. Surge para atender el rezago educativo y ganó fuerza al contar con convenio y respaldo de la Secretaría de Educación Pública de Campeche, SEDUC, para impulsar su validación y alcance.",
+    stack: ["Hackathon", "Web", "Presentación", "Educación"],
     repositories: [
       projectLink("GitHub","https://github.com/CastilloDevX/Hightlight_CECYTEC_Projects/tree/main/Edu-Camp"),
-      projectLink("Website","https://educamp-sigma.vercel.app/"),
+      projectLink("Sitio web","https://educamp-sigma.vercel.app/"),
     ],
     previews: [],
   }
@@ -686,20 +719,20 @@ export const clients = [
     clientName: "PIA Project",
     clientPosition: "Founder",
     testimonial:
-      "Jose Manuel ha sido una experiencia sumamente positiva. Desde el inicio, demostró un alto nivel de responsabilidad y compromiso con cada tarea asignada. Tiene una gran capacidad para aprender por cuenta propia y adaptarse rápidamente a nuevos entornos o tecnologías, lo que fue clave para el éxito del proyecto.",
+      "José Manuel ha sido una experiencia sumamente positiva. Desde el inicio, demostró un alto nivel de responsabilidad y compromiso con cada tarea asignada. Tiene una gran capacidad para aprender por cuenta propia y adaptarse rápidamente a nuevos entornos o tecnologías, lo que fue clave para el éxito del proyecto.",
   },
   {
     clientAvatar: brukyon,
     clientName: "Quick Coins & Ploostream",
     clientPosition: "Founder",
     testimonial:
-      "Trabajar con Jose Manuel en mi juego de Roblox ha sido una experiencia impecable. Destaco por encima de todo su sinceridad y atención; siempre estuvo disponible para resolver cualquier duda. Manteníamos llamadas constantes para revisar avances, lo que me dio mucha tranquilidad. Además, su responsabilidad es total: si los estudios le requerían tiempo, me avisaba con días de antelación. En resumen, un profesional educado, responsable y altamente comprometido.",
+      "Trabajar con José Manuel en mi juego de Roblox ha sido una experiencia impecable. Destaco por encima de todo su sinceridad y atención; siempre estuvo disponible para resolver cualquier duda. Manteníamos llamadas constantes para revisar avances, lo que me dio mucha tranquilidad. Además, su responsabilidad es total: si los estudios le requerían tiempo, me avisaba con días de antelación. En resumen, un profesional educado, responsable y altamente comprometido.",
   },
   {
     clientAvatar: null,
     clientName: "Breiler Alfredo González",
     clientPosition: "Air Brey Services",
-    testimonial:"Quiero expresar mi más sincero agradecimiento a José Manuel por el excelente trabajo realizado en mi página web. Su atención, profesionalismo y dedicación hicieron que todo el proceso fuera mucho más fácil y eficiente. Siempre estuvo dispuesto a ayudar, resolver dudas y cuidar cada detalle para lograr un resultado de alta calidad, gracias por a su compromiso y por brindar un servicio tan profesional. Sin duda, recomendamos su trabajo y espero seguir colaborando con él en futuros proyectos."  
+    testimonial:"Quiero expresar mi más sincero agradecimiento a José Manuel por el excelente trabajo realizado en mi página web. Su atención, profesionalismo y dedicación hicieron que todo el proceso fuera mucho más fácil y eficiente. Siempre estuvo dispuesto a ayudar, resolver dudas y cuidar cada detalle para lograr un resultado de alta calidad, gracias por su compromiso y por brindar un servicio tan profesional. Sin duda, recomendamos su trabajo y espero seguir colaborando con él en futuros proyectos."  
   }
 ];
 

@@ -21,7 +21,7 @@ export default function HeroSection() {
             />
             <img
               src={heroContent.image}
-              alt="Jose Manuel Castillo Queh"
+              alt="José Manuel Castillo Queh"
               className="animate-image-bob w-full rounded-full"
             />
           </ScrollReveal>
