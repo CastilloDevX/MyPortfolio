@@ -46,6 +46,7 @@ import eduCampPreview from "../assets/images/previews/EduCamp.png"
 import quickCoinsPreview from "../assets/images/previews/QuickCoins.png";
 import canutoPreview from "../assets/images/previews/Canuto.png";
 import airBreyPreview from "../assets/images/previews/AirBrey.png";
+import geriCAMPreview from "../assets/images/previews/GeriCAM.png";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
@@ -256,6 +257,15 @@ export const projectRecruiterBriefs = {
     "Experiencia web educativa para ninos de 3 a 6 anos enfocada en conteo, interaccion amable y recursos visuales/sonoros. Adapte contenido temprano a una interfaz ludica, con ",
     emphasis("feedback pensado para sostener atencion"),
     " y aprendizaje inicial. Disene para un usuario real con necesidades cognitivas concretas, no para una demo generica."
+  ),
+  gericam: brief(
+    "App de asistencia para adultos mayores creada en Hackathon TCS Empowers 2023. La solucion permite marcar alertas para pedir ayuda medica o apoyo de personal de gericultura de CEYCTEC cuando una persona mayor esta en riesgo, tiene una emergencia o necesita acompanamiento inmediato. Alcanzamos ",
+    emphasis("Top 4 nacional"),
+    ", colaboracion con ",
+    emphasis("INAPAM"),
+    " para enfocar correctamente el problema y obtuvimos el reconocimiento por la gobernadora del estado de Campeche 2023. El proyecto demuestra capacidad para convertir una necesidad sensible en un producto de ",
+    emphasis("impacto social, validacion institucional y respuesta critica"),
+    "."
   ),
   educamp: brief(
     "App educativa de hackathon para lectura, comprension y aritmetica basica con rutas, videos, actividades y minijuegos. Gane ",
@@ -557,6 +567,30 @@ export const featuredProjects = [
     repositories: [
       projectLink("GitHub", "https://github.com/CastilloDevX/beesmath"),
       projectLink("Website","https://castillodevx.github.io/beesmath/")
+    ],
+    previews: [],
+  },
+  {
+    id: "gericam",
+    sortDate: "2023-05-18",
+    createdAt: "Mayo 2023",
+    title: "GeriCAM",
+    category: "App de asistencia medica para adultos mayores",
+    status: "Hackathon TCS Empowers 2023 - Top 4",
+    accent: "emerald",
+    previewAccent: "#22c55e",
+    previewAccentAlt: "#38bdf8",
+    previewSurface:
+      "radial-gradient(circle at 16% 18%, rgba(34,197,94,0.3), transparent 24%), radial-gradient(circle at 80% 20%, rgba(56,189,248,0.22), transparent 24%), linear-gradient(135deg, rgba(8,34,28,0.96), rgba(12,54,66,0.9) 52%, rgba(6,14,20,0.98))",
+    previewLabel: "Preview de GeriCAM",
+    previewImage: geriCAMPreview,
+    previewNote:
+      "Banner del proyecto presentado en TCS Empowers 2023 para asistencia y alertas de emergencia en adultos mayores.",
+    summary:
+      "GeriCAM es una app de asistencia para adultos mayores que permite pedir ayuda medica o apoyo de personal de gericultura de CEYCTEC ante alertas de riesgo, emergencias o situaciones criticas. El proyecto conto con orientacion de INAPAM para enfocar correctamente la solucion, desperto interes de patrocinadores, obtuvo Top 4 en Hackathon TCS Empowers 2023 y recibio reconocimiento por la gobernadora de Campeche.",
+    stack: ["Hackathon", "Aplicacion movil", "Salud", "Impacto social"],
+    repositories: [
+      projectLink("GitHub", "https://github.com/CastilloDevX/GeriCAM"),
     ],
     previews: [],
   },

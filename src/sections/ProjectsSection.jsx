@@ -153,7 +153,14 @@ function getProjectAward(project) {
     };
   }
 
-  if (status.includes("top 4")) {
+  if (project.id === "gericam" || (status.includes("top 4") && status.includes("tcs"))) {
+    return {
+      label: "Top 4",
+      detail: "Hackathon TCS Empowers 2023",
+    };
+  }
+
+  if (project.id === "space-vision" || status.includes("top 4")) {
     return {
       label: "Top 4",
       detail: "NASA Space Apps",
