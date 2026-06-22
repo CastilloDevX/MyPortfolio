@@ -48,6 +48,7 @@ import canutoPreview from "../assets/images/previews/Canuto.png";
 import airBreyPreview from "../assets/images/previews/AirBrey.png";
 import geriCAMPreview from "../assets/images/previews/GeriCAM.png";
 import smileyVisionPreview from "../assets/images/previews/SmileyVision.png";
+import oncolabPreview from "../assets/images/previews/Oncolab.png";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
@@ -204,6 +205,15 @@ export const projectRecruiterBriefs = {
     emphasis("confianza, posicionamiento regional y conversión"),
     " mientras prepara el lanzamiento público de la marca."
   ),
+  oncolab: brief(
+    "Simulador didáctico e investigativo sobre cáncer, creado para apoyar el aprendizaje de estudiantes de medicina, oncólogos y doctores mediante una experiencia clara y usable. El prototipo modela escenarios de ",
+    emphasis("cáncer de pulmón con >= 70% en hasta 7 días"),
+    " y ",
+    emphasis("cáncer de mama con 80% de precisión en máximo 12 días"),
+    " como referencia formativa, no diagnóstica. Lidero la creación y el desarrollo técnico del proyecto, con apoyo actual del ",
+    emphasis("Oncológico de Campeche, ECOSUR y CIMAP"),
+    "."
+  ),
   "quick-coins": brief(
     "Juego competitivo en Roblox con minijuegos, recompensas, tienda y economía interna. Convierte partidas cortas en un ciclo de riesgo, habilidad y premio. Integré varios modos bajo una ",
     emphasis("misma economía jugable"),
@@ -305,6 +315,36 @@ export const featuredProjects = [
     summary:
       "Smiley Vision es un sitio web en desarrollo para una distribuidora de ópticas que opera en Campeche, Ciudad de México y Mérida. La plataforma está pensada para crear presencia digital, comunicar la oferta de la marca y aumentar ventas dentro de un nicho especializado, con una experiencia enfocada en confianza, claridad comercial y crecimiento regional.",
     stack: ["React", "Vite", "Sitio web", "Ópticas"],
+    repositories: [],
+    previews: [
+      projectLink("Próximamente", null, "coming-soon"),
+    ],
+  },
+  {
+    id: "oncolab",
+    sortDate: "2026-06-22",
+    createdAt: "?",
+    title: "Oncolab",
+    category: "Simulador didáctico de investigación oncológica",
+    status: "En desarrollo",
+    statusType: "prototype",
+    accent: "violet",
+    previewAccent: "#38bdf8",
+    previewAccentAlt: "#f472b6",
+    previewImage: oncolabPreview,
+    previewSurface:
+      "radial-gradient(circle at 18% 18%, rgba(56,189,248,0.28), transparent 24%), radial-gradient(circle at 78% 20%, rgba(244,114,182,0.2), transparent 22%), linear-gradient(135deg, rgba(10,23,38,0.96), rgba(40,24,56,0.9) 52%, rgba(7,10,18,0.98))",
+    previewLabel: "Oncolab",
+    previewNote:
+      "Banner del prototipo de simulación didáctica para investigación y formación en oncología.",
+    summary:
+      "Oncolab es un simulador didáctico para el cáncer en etapa de prototipo, orientado a investigación científica y formación médica. Actualmente simula cáncer de pulmón con >= 70% en hasta 7 días y cáncer de mama con 80% de precisión en máximo 12 días, como referencias formativas dentro de una herramienta no diagnóstica. El producto busca ofrecer una UI/UX clara, accesible y eficiente para estudiantes de medicina, oncólogos y doctores, facilitando el desempeño académico y profesional en escenarios de aprendizaje. El proyecto cuenta con apoyo del Oncológico de Campeche, ECOSUR y CIMAP; soy el creador y líder de desarrollo técnico.",
+    stack: [
+      "Investigación científica",
+      "Simulador didáctico",
+      "Oncología",
+      "UI/UX médico",
+    ],
     repositories: [],
     previews: [
       projectLink("Próximamente", null, "coming-soon"),
