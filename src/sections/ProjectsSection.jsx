@@ -59,20 +59,13 @@ function ProjectTimelineItem({ project, index }) {
               alt={`${project.title} - imagen representativa`}
               loading={index < 2 ? "eager" : "lazy"}
             />
-            {award ? (
-              <span className="project-award-frame">
-                <SolidIcon name="trophy" className="h-5 w-5" />
-                <span className="project-award-copy">
-                  <strong>{award.label}</strong>
-                  <span>{award.detail}</span>
-                </span>
-              </span>
-            ) : null}
+            {award ? <ProjectAward award={award} placement="media" /> : null}
           </>
         ) : null}
       </div>
 
       <div className="project-timeline-copy">
+        {award ? <ProjectAward award={award} placement="copy" /> : null}
         <p className="project-timeline-kicker">
           {project.createdAt}
         </p>
@@ -115,6 +108,18 @@ function ProjectTimelineItem({ project, index }) {
         ) : null}
       </div>
     </ScrollReveal>
+  );
+}
+
+function ProjectAward({ award, placement }) {
+  return (
+    <span className={`project-award-frame is-${placement}`}>
+      <SolidIcon name="trophy" className="h-5 w-5" />
+      <span className="project-award-copy">
+        <strong>{award.label}</strong>
+        <span>{award.detail}</span>
+      </span>
+    </span>
   );
 }
 

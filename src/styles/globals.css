@@ -173,6 +173,10 @@ select {
   backdrop-filter: blur(12px);
 }
 
+.project-award-frame.is-copy {
+  display: none;
+}
+
 .project-award-frame::after {
   content: "";
   position: absolute;
@@ -428,6 +432,23 @@ select {
     justify-content: flex-start;
   }
 
+}
+
+@media (max-width: 900px) and (hover: none) and (pointer: coarse) {
+  .project-award-frame.is-media {
+    display: none;
+  }
+
+  .project-award-frame.is-copy {
+    position: relative;
+    top: auto;
+    left: auto;
+    display: inline-flex;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 0 0.85rem;
+    z-index: 1;
+  }
 }
 
 @media (max-width: 560px) {
