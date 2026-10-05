@@ -49,6 +49,7 @@ import airBreyPreview from "../assets/images/previews/AirBrey.png";
 import geriCAMPreview from "../assets/images/previews/GeriCAM.png";
 import smileyVisionPreview from "../assets/images/previews/SmileyVision.png";
 import oncolabPreview from "../assets/images/previews/Oncolab.png";
+import geotrackPreview from "../assets/images/previews/geotrack.png";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
@@ -184,6 +185,15 @@ export const services = [
 ];
 
 export const projectRecruiterBriefs = {
+  geotrack: brief(
+    "Geotrack es una plataforma SaaS de rastreo vehicular en tiempo real que convierte datos GPS en control operativo y una oferta comercial escalable para empresas, resellers y clientes. ",
+    emphasis("Colaboré en su evolución"),
+    " y resolví ",
+    emphasis("errores críticos que afectaban a usuarios en producción"),
+    ", desarrollé una arquitectura sólida y optimicé el consumo de APIs para reducir costos. Hoy sostiene ",
+    emphasis("más de 500 usuarios activos"),
+    " con rastreo, alertas, geocercas y gestión de flotas en una solución lista para crecer y venderse. Un caso de SaaS con éxito aportando a sus usuarios seguridad y control de su vehículo."
+  ),
   "desayunos-canuto": brief(
     "Landing page comercial para un negocio local de desayunos. La pieza ordena oferta, confianza y contacto en una experiencia clara para convertir curiosidad en visita o pedido. Logré llevar el negocio a una ",
     emphasis("URL pública 24/7"),
@@ -295,6 +305,25 @@ export const projectRecruiterBriefs = {
 };
 
 export const featuredProjects = [
+  {
+    id: "geotrack",
+    sortDate: "2026-09-24",
+    createdAt: "24 de septiembre de 2026",
+    title: "Geotrack",
+    category: "Plataforma SaaS de rastreo GPS vehicular",
+    status: "En producción · +500 usuarios activos",
+    statusType: "live",
+    accent: "red",
+    previewAccent: "#ef4444",
+    previewAccentAlt: "#f8fafc",
+    previewImage: geotrackPreview,
+    previewLabel: "Geotrack",
+    summary:
+      "Plataforma SaaS de rastreo GPS vehicular en tiempo real para empresas, resellers y clientes. Colaboré en su evolución, resolví errores críticos en producción, desarrollé una arquitectura escalable y optimicé el uso de APIs para reducir costos. La solución reúne monitoreo, alertas, geocercas y gestión de flotas, y cuenta con más de 500 usuarios activos.",
+    stack: ["React", "FastAPI", "MongoDB", "GPS en tiempo real", "SaaS"],
+    repositories: [],
+    previews: [projectLink("Plataforma en vivo", "https://central-gps.com/")],
+  },
   {
     id: "smiley-vision",
     sortDate: "2026-06-21",
