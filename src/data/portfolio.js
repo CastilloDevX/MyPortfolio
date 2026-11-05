@@ -1,6 +1,7 @@
 import meImage from "../assets/images/me-roblox.png";
 import client1 from "../assets/images/clients/pia-project.jpeg";
 import brukyon from "../assets/images/clients/brukyon.webp";
+import centralGps from "../assets/images/clients/central-jps.jpeg";
 import arduinoIcon from "../assets/images/icons/arduino.svg";
 import beautifulSoupIcon from "../assets/images/icons/beautiful-soup.svg";
 import bootstrapIcon from "../assets/images/icons/bootstrap.svg";
@@ -802,7 +803,14 @@ export const clients = [
     clientName: "Breiler Alfredo González",
     clientPosition: "Air Brey Services",
     testimonial:"Quiero expresar mi más sincero agradecimiento a José Manuel por el excelente trabajo realizado en mi página web. Su atención, profesionalismo y dedicación hicieron que todo el proceso fuera mucho más fácil y eficiente. Siempre estuvo dispuesto a ayudar, resolver dudas y cuidar cada detalle para lograr un resultado de alta calidad, gracias por su compromiso y por brindar un servicio tan profesional. Sin duda, recomendamos su trabajo y espero seguir colaborando con él en futuros proyectos."  
-  }
+  },
+  {
+    clientAvatar: centralGps,
+    clientName: "Yeremi Reyes",
+    clientPosition: "CEO de Central GPS",
+    testimonial:
+      "Quiero recomendar ampliamente a José Manuel por el excelente trabajo que realizó con mi aplicación Geotrack. Es un profesional responsable, comprometido y atento a cada detalle. Se toma el tiempo de escuchar tus ideas, comprender tus necesidades y adaptar cada aspecto del proyecto a lo que realmente buscas. Trabajar con él ha sido una experiencia muy positiva, gracias a su disposición, comunicación y dedicación. Sin duda, lo recomiendo al 100% a quienes buscan un programador de confianza y comprometido con ofrecer un trabajo de calidad.",
+  },
 ];
 
 export const contactContent = {
