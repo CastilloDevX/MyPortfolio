@@ -1,9 +1,9 @@
-import ScrollReveal from "../motion/ScrollReveal.jsx";
+import ScrollFloat from "../react-bits/ScrollFloat.jsx";
 
 export default function SectionTitle({ children, className = "" }) {
   return (
-    <ScrollReveal as="h2" variant="title" className={`section-title ${className}`}>
+    <ScrollFloat containerClassName={`section-title ${className}`} scrollStart="top bottom" scrollEnd="top 60%" stagger={0.025}>
       {children}
-    </ScrollReveal>
+    </ScrollFloat>
   );
 }

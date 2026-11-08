@@ -2,12 +2,11 @@ import meImage from "../assets/images/me-roblox.png";
 import client1 from "../assets/images/clients/pia-project.jpeg";
 import brukyon from "../assets/images/clients/brukyon.webp";
 import centralGps from "../assets/images/clients/central-jps.jpeg";
-import arduinoIcon from "../assets/images/icons/arduino.svg";
-import beautifulSoupIcon from "../assets/images/icons/beautiful-soup.svg";
+import airBreyLogo from "../assets/images/clients/air-brey-services.webp";
+import beautifulSoupIcon from "../assets/images/icons/beautiful-soup.webp";
 import bootstrapIcon from "../assets/images/icons/bootstrap.svg";
 import cssIcon from "../assets/images/icons/css3.svg";
 import electronIcon from "../assets/images/icons/electron.svg";
-import esp32Icon from "../assets/images/icons/esp32.svg";
 import firebaseIcon from "../assets/images/icons/firebase.svg";
 import flaskIcon from "../assets/images/icons/flask.svg";
 import flutterIcon from "../assets/images/icons/flutter.svg";
@@ -23,13 +22,31 @@ import mysqlIcon from "../assets/images/icons/mysql.svg";
 import nextjsIcon from "../assets/images/icons/nextjs.svg";
 import nodeIcon from "../assets/images/icons/nodejs.svg";
 import numpyIcon from "../assets/images/icons/numpy.svg";
-import plcIcon from "../assets/images/icons/plc.svg";
 import pythonIcon from "../assets/images/icons/python.svg";
 import reactIcon from "../assets/images/icons/react.svg";
 import robloxStudioIcon from "../assets/images/icons/roblox-studio.svg";
 import tailwindIcon from "../assets/images/icons/tailwind-css.svg";
 import tsIcon from "../assets/images/icons/typescript.svg";
 import unityIcon from "../assets/images/icons/unity.svg";
+import supabaseIcon from "../assets/images/icons/supabase.svg";
+import redisIcon from "../assets/images/icons/redis.svg";
+import postgresqlIcon from "../assets/images/icons/postgresql.svg";
+import sqliteIcon from "../assets/images/icons/sqlite.svg";
+import fastapiIcon from "../assets/images/icons/fastapi.svg";
+import expressIcon from "../assets/images/icons/express.svg";
+import viteIcon from "../assets/images/icons/vite.svg";
+import threejsIcon from "../assets/images/icons/threejs.svg";
+import gsapIcon from "../assets/images/icons/gsap.svg";
+import leafletIcon from "../assets/images/icons/leaflet.svg";
+import vercelIcon from "../assets/images/icons/vercel.svg";
+import luauIcon from "../assets/images/icons/luau.svg";
+import playwrightIcon from "../assets/images/icons/playwright.svg";
+import vitestIcon from "../assets/images/icons/vitest.svg";
+import pytestIcon from "../assets/images/icons/pytest.svg";
+import pandasIcon from "../assets/images/icons/pandas.svg";
+import csharpIcon from "../assets/images/icons/csharp.svg";
+import dotnetIcon from "../assets/images/icons/dotnet.svg";
+import bashIcon from "../assets/images/icons/bash.svg";
 import localImg from "../assets/images/shapes/local-place.svg";
 import mexicoImg from "../assets/images/shapes/mexico.svg";
 import worldImg from "../assets/images/shapes/world.svg";
@@ -51,6 +68,7 @@ import geriCAMPreview from "../assets/images/previews/GeriCAM.png";
 import smileyVisionPreview from "../assets/images/previews/SmileyVision.png";
 import oncolabPreview from "../assets/images/previews/Oncolab.png";
 import geotrackPreview from "../assets/images/previews/geotrack.png";
+import novaFinancePreview from "../assets/images/previews/NovaFinance.webp";
 
 export const heroContent = {
   role: "Soy desarrollador de software",
@@ -117,6 +135,16 @@ export const services = [
       icon(nodeIcon, "Node.js"),
       icon(nextjsIcon, "Next.js"),
       icon(flaskIcon, "Flask"),
+      icon(fastapiIcon, "FastAPI"),
+      icon(expressIcon, "Express"),
+      icon(csharpIcon, "C#"),
+      icon(dotnetIcon, ".NET"),
+      icon(viteIcon, "Vite"),
+      icon(threejsIcon, "Three.js"),
+      icon(gsapIcon, "GSAP"),
+      icon(leafletIcon, "Leaflet"),
+      icon(vercelIcon, "Vercel"),
+      icon(vitestIcon, "Vitest"),
     ],
   },
   {
@@ -127,6 +155,11 @@ export const services = [
       icon(javaIcon, "Java"),
       icon(kotlinIcon, "Kotlin"),
       icon(jetpackIcon, "Jetpack Compose"),
+      icon(flutterIcon, "Flutter"),
+      icon(reactIcon, "React"),
+      icon(tsIcon, "TypeScript"),
+      icon(csharpIcon, "C#"),
+      icon(dotnetIcon, ".NET"),
     ],
   },
   {
@@ -135,6 +168,8 @@ export const services = [
       "Creación de experiencias de juego divertidas, interactivas y optimizadas, incluyendo desarrollo en Roblox con LuaU, mecánicas personalizadas, sistemas de juego y diseño de gameplay centrado en el usuario.",
     icons: [
       icon(robloxStudioIcon, "Roblox Studio"),
+      icon(luauIcon, "LuaU"),
+      icon(csharpIcon, "C#"),
       icon(godotIcon, "Godot"),
       icon(unityIcon, "Unity"),
     ],
@@ -149,28 +184,35 @@ export const services = [
       icon(electronIcon, "Electron"),
       icon(flutterIcon, "Flutter"),
       icon(jsIcon, "JavaScript"),
+      icon(tsIcon, "TypeScript"),
+      icon(reactIcon, "React"),
+      icon(csharpIcon, "C#"),
+      icon(dotnetIcon, ".NET"),
     ],
   },
   {
-    title: "Sistemas Embebidos",
+    title: "Bases de Datos",
     description:
-      "Construcción de soluciones embebidas con sistemas ESP32, Arduino y PLC, integrando hardware y software para automatizar, controlar y conectar dispositivos del mundo real.",
+      "Diseño e integración de bases de datos para aplicaciones confiables, con acceso seguro, información organizada y consultas eficientes. Combino almacenamiento relacional, documentos y caché según las necesidades de cada proyecto.",
     icons: [
-      icon(esp32Icon, "ESP32"),
-      icon(arduinoIcon, "Arduino"),
-      icon(plcIcon, "PLC"),
+      icon(supabaseIcon, "Supabase"),
+      icon(redisIcon, "Redis"),
+      icon(postgresqlIcon, "PostgreSQL"),
+      icon(mysqlIcon, "MySQL"),
+      icon(mongodbIcon, "MongoDB"),
+      icon(firebaseIcon, "Firebase"),
+      icon(sqliteIcon, "SQLite"),
     ],
   },
   {
     title: "Ciencia de Datos",
     description:
-      "Extracción de insights de datos usando Python y SQL con NumPy y herramientas de visualización, además de diseñar bases de datos eficientes para decisiones confiables basadas en datos.",
+      "Análisis y transformación de datos con Python, NumPy y Pandas, junto con visualizaciones interactivas y científicas para explorar información y comunicar resultados de forma clara.",
     icons: [
       icon(pythonIcon, "Python"),
       icon(numpyIcon, "NumPy"),
-      icon(mysqlIcon, "MySQL"),
-      icon(firebaseIcon, "Firebase"),
-      icon(mongodbIcon, "MongoDB"),
+      icon(pandasIcon, "Pandas"),
+      icon(threejsIcon, "Three.js"),
     ],
   },
   {
@@ -181,11 +223,24 @@ export const services = [
       icon(pythonIcon, "Python"),
       icon(beautifulSoupIcon, "Beautiful Soup"),
       icon(jsIcon, "JavaScript"),
+      icon(tsIcon, "TypeScript"),
+      icon(nodeIcon, "Node.js"),
+      icon(bashIcon, "Bash"),
+      icon(playwrightIcon, "Playwright"),
+      icon(pytestIcon, "pytest"),
     ],
   },
 ];
 
 export const projectRecruiterBriefs = {
+  "nova-finance": brief(
+    emphasis("Nova Finance nació de Geotrack"),
+    ", en respuesta a usuarios que solicitaban financiamiento para su GPS, instalación y primer año de servicio. Diseñé y desarrollé una plataforma que convierte esa demanda en un servicio digital para República Dominicana y Estados Unidos. Reuní solicitudes, documentos, contratos y seguimiento en una experiencia clara, con las medidas de seguridad necesarias para proteger la información del cliente. El resultado: los usuarios pueden ",
+    emphasis("solicitar financiamiento y recibir atención dentro de la misma plataforma"),
+    ", sin visitar una oficina. Para el negocio, cada expediente queda centralizado, con ",
+    emphasis("solicitudes, contratos y pagos registrados en un solo lugar"),
+    " para facilitar su gestión y seguimiento diario."
+  ),
   geotrack: brief(
     "Geotrack es una plataforma SaaS de rastreo vehicular en tiempo real que convierte datos GPS en control operativo y una oferta comercial escalable para empresas, resellers y clientes. ",
     emphasis("Colaboré en su evolución"),
@@ -217,13 +272,11 @@ export const projectRecruiterBriefs = {
     " mientras prepara el lanzamiento público de la marca."
   ),
   oncolab: brief(
-    "Simulador didáctico e investigativo sobre cáncer, creado para apoyar el aprendizaje de estudiantes de medicina, oncólogos y doctores mediante una experiencia clara y usable. El prototipo modela escenarios de ",
-    emphasis("cáncer de pulmón con >= 70% en hasta 7 días"),
-    " y ",
-    emphasis("cáncer de mama con 80% de precisión en máximo 12 días"),
-    " como referencia formativa, no diagnóstica. Lidero la creación y el desarrollo técnico del proyecto, con apoyo actual del ",
-    emphasis("Oncológico de Campeche, ECOSUR y CIMAP"),
-    "."
+    "Comprender cómo crece el cáncer exige conectar teoría, matemáticas y anatomía. ",
+    emphasis("Concebí Oncolab y lideré su desarrollo"),
+    " para convertir esa complejidad en una experiencia educativa interactiva: simular crecimiento tumoral en pulmón, mama y próstata, explorar órganos en 3D y visualizar cómo cambian distintos escenarios. El proceso abarcó ",
+    emphasis("investigación científica, selección de modelos matemáticos, prototipado, verificación numérica y mejoras de usabilidad"),
+    ", hasta integrar simulación y documentación en una misma propuesta. El resultado es una herramienta que permite explorar conceptos oncológicos mediante experimentación visual, orientada a estudiantes, docentes y profesionales. Nació de mi iniciativa y se prepara para competir en Infomatrix. Su lanzamiento oficial será el 27 de noviembre de 2026; su alcance es educativo."
   ),
   "quick-coins": brief(
     "Juego competitivo en Roblox con minijuegos, recompensas, tienda y economía interna. Convierte partidas cortas en un ciclo de riesgo, habilidad y premio. Integré varios modos bajo una ",
@@ -307,6 +360,57 @@ export const projectRecruiterBriefs = {
 
 export const featuredProjects = [
   {
+    id: "oncolab",
+    sortDate: "2026-11-27",
+    createdAt: "27 de noviembre de 2026",
+    title: "Oncolab",
+    category: "Simulador didáctico de investigación oncológica",
+    status: "Lanzamiento oficial · 27 de noviembre de 2026",
+    statusType: "prototype",
+    accent: "violet",
+    previewAccent: "#38bdf8",
+    previewAccentAlt: "#f472b6",
+    previewImage: oncolabPreview,
+    previewSurface:
+      "radial-gradient(circle at 18% 18%, rgba(56,189,248,0.28), transparent 24%), radial-gradient(circle at 78% 20%, rgba(244,114,182,0.2), transparent 22%), linear-gradient(135deg, rgba(10,23,38,0.96), rgba(40,24,56,0.9) 52%, rgba(7,10,18,0.98))",
+    previewLabel: "Oncolab",
+    previewNote:
+      "Banner de Oncolab, simulador educativo de crecimiento tumoral.",
+    summary:
+      "Comprender cómo crece el cáncer exige conectar teoría, matemáticas y anatomía. Concebí Oncolab y lideré su desarrollo para convertir esa complejidad en una experiencia educativa interactiva: simular crecimiento tumoral en pulmón, mama y próstata, explorar órganos en 3D y visualizar cómo cambian distintos escenarios. El proceso abarcó investigación científica, selección de modelos matemáticos, prototipado, verificación numérica y mejoras de usabilidad, hasta integrar simulación y documentación en una misma propuesta. El resultado es una herramienta que permite explorar conceptos oncológicos mediante experimentación visual, orientada a estudiantes, docentes y profesionales. Nació de mi iniciativa y se prepara para competir en Infomatrix. Su lanzamiento oficial será el 27 de noviembre de 2026; su alcance es educativo.",
+    stack: [
+      "Investigación científica",
+      "Simulador didáctico",
+      "Oncología",
+      "UI/UX médico",
+    ],
+    repositories: [],
+    previews: [
+      projectLink("Sitio del proyecto", "https://oncolab.app"),
+      projectLink("Documentación", "https://docs.oncolab.app", "docs"),
+    ],
+  },
+  {
+    id: "nova-finance",
+    sortDate: "2026-11-06",
+    createdAt: "6 de noviembre de 2026",
+    title: "Nova Finance",
+    category: "Plataforma de financiamiento GPS",
+    status: "Publicado",
+    statusType: "live",
+    accent: "emerald",
+    previewAccent: "#147d69",
+    previewAccentAlt: "#a6d6c7",
+    previewImage: novaFinancePreview,
+    previewLabel: "Nova Finance · Financiamiento GPS en línea",
+    previewNote: "Portada de Nova Finance con su identidad visual sobre un fondo de GPS y financiamiento.",
+    summary:
+      "Nova Finance nació de Geotrack, en respuesta a usuarios que solicitaban financiamiento para su GPS, instalación y primer año de servicio. Diseñé y desarrollé una plataforma que convierte esa demanda en un servicio digital para República Dominicana y Estados Unidos. Reuní solicitudes, documentos, contratos y seguimiento en una experiencia clara, con las medidas de seguridad necesarias para proteger la información del cliente. El resultado: los usuarios pueden solicitar financiamiento y recibir atención dentro de la misma plataforma, sin visitar una oficina. Para el negocio, cada expediente queda centralizado, con solicitudes, contratos y pagos registrados en un solo lugar para facilitar su gestión y seguimiento diario.",
+    stack: ["Financiamiento GPS", "Solicitud en línea", "Gestión de expedientes", "Protección de datos"],
+    repositories: [],
+    previews: [projectLink("Sitio público", "https://novafinance.services")],
+  },
+  {
     id: "geotrack",
     sortDate: "2026-09-24",
     createdAt: "24 de septiembre de 2026",
@@ -350,36 +454,7 @@ export const featuredProjects = [
       projectLink("Próximamente", null, "coming-soon"),
     ],
   },
-  {
-    id: "oncolab",
-    sortDate: "2026-06-22",
-    createdAt: "?",
-    title: "Oncolab",
-    category: "Simulador didáctico de investigación oncológica",
-    status: "En desarrollo",
-    statusType: "prototype",
-    accent: "violet",
-    previewAccent: "#38bdf8",
-    previewAccentAlt: "#f472b6",
-    previewImage: oncolabPreview,
-    previewSurface:
-      "radial-gradient(circle at 18% 18%, rgba(56,189,248,0.28), transparent 24%), radial-gradient(circle at 78% 20%, rgba(244,114,182,0.2), transparent 22%), linear-gradient(135deg, rgba(10,23,38,0.96), rgba(40,24,56,0.9) 52%, rgba(7,10,18,0.98))",
-    previewLabel: "Oncolab",
-    previewNote:
-      "Banner del prototipo de simulación didáctica para investigación y formación en oncología.",
-    summary:
-      "Oncolab es un simulador didáctico para el cáncer en etapa de prototipo, orientado a investigación científica y formación médica. Actualmente simula cáncer de pulmón con >= 70% en hasta 7 días y cáncer de mama con 80% de precisión en máximo 12 días, como referencias formativas dentro de una herramienta no diagnóstica. El producto busca ofrecer una UI/UX clara, accesible y eficiente para estudiantes de medicina, oncólogos y doctores, facilitando el desempeño académico y profesional en escenarios de aprendizaje. El proyecto cuenta con apoyo del Oncológico de Campeche, ECOSUR y CIMAP; soy el creador y líder de desarrollo técnico.",
-    stack: [
-      "Investigación científica",
-      "Simulador didáctico",
-      "Oncología",
-      "UI/UX médico",
-    ],
-    repositories: [],
-    previews: [
-      projectLink("Próximamente", null, "coming-soon"),
-    ],
-  },
+
   {
     id: "desayunos-canuto",
     sortDate: "2026-05-24",
@@ -799,7 +874,8 @@ export const clients = [
       "Trabajar con José Manuel en mi juego de Roblox ha sido una experiencia impecable. Destaco por encima de todo su sinceridad y atención; siempre estuvo disponible para resolver cualquier duda. Manteníamos llamadas constantes para revisar avances, lo que me dio mucha tranquilidad. Además, su responsabilidad es total: si los estudios le requerían tiempo, me avisaba con días de antelación. En resumen, un profesional educado, responsable y altamente comprometido.",
   },
   {
-    clientAvatar: null,
+    clientAvatar: airBreyLogo,
+    clientAvatarOnWhite: true,
     clientName: "Breiler Alfredo González",
     clientPosition: "Air Brey Services",
     testimonial:"Quiero expresar mi más sincero agradecimiento a José Manuel por el excelente trabajo realizado en mi página web. Su atención, profesionalismo y dedicación hicieron que todo el proceso fuera mucho más fácil y eficiente. Siempre estuvo dispuesto a ayudar, resolver dudas y cuidar cada detalle para lograr un resultado de alta calidad, gracias por su compromiso y por brindar un servicio tan profesional. Sin duda, recomendamos su trabajo y espero seguir colaborando con él en futuros proyectos."  

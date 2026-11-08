@@ -4,6 +4,8 @@ import ScrollReveal from "../components/motion/ScrollReveal.jsx";
 import SolidIcon from "../components/ui/SolidIcon.jsx";
 import { featuredProjects, projectRecruiterBriefs } from "../data/portfolio.js";
 import SectionTitle from "../components/common/SectionTitle.jsx";
+import ScrollFloat from "../components/react-bits/ScrollFloat.jsx";
+import ScrollExpand from "../components/react-bits/ScrollExpand.jsx";
 
 export default function ProjectsSection() {
   const projects = useMemo(
@@ -41,11 +43,8 @@ function ProjectTimelineItem({ project, index }) {
   const award = getProjectAward(project);
 
   return (
-    <ScrollReveal
-      as="article"
+    <article
       className={`project-timeline-item ${isReversed ? "is-reversed" : ""}`}
-      variant={isReversed ? "media-right" : "media-left"}
-      delay={Math.min(index * 35, 180)}
     >
       <div className="project-timeline-node" aria-hidden="true">
         <span>{formatCount(index + 1)}</span>
@@ -54,22 +53,29 @@ function ProjectTimelineItem({ project, index }) {
       <div className="project-timeline-media">
         {project.previewImage ? (
           <>
-            <img
+            <ScrollExpand
               src={project.previewImage}
               alt={`${project.title} - imagen representativa`}
               loading={index < 2 ? "eager" : "lazy"}
+              inline
+              useWindowScroll
+              startWidth={76}
+              startHeight={80}
+              mediaZoom={1.08}
+              endRadius={22}
+              overlayScrim={0}
             />
             {award ? <ProjectAward award={award} placement="media" /> : null}
           </>
         ) : null}
       </div>
 
-      <div className="project-timeline-copy">
+      <ScrollReveal className="project-timeline-copy" variant={isReversed ? "media-right" : "media-left"}>
         {award ? <ProjectAward award={award} placement="copy" /> : null}
         <p className="project-timeline-kicker">
           {project.createdAt}
         </p>
-        <h3>{project.title}</h3>
+        <ScrollFloat as="h3" scrollStart="top bottom" scrollEnd="top 65%" stretch={1.5} stagger={0.025}>{project.title}</ScrollFloat>
 
         <div className="project-timeline-brief">
           <p>{renderRichText(brief)}</p>
@@ -106,8 +112,8 @@ function ProjectTimelineItem({ project, index }) {
             </div>
           </div>
         ) : null}
-      </div>
-    </ScrollReveal>
+      </ScrollReveal>
+    </article>
   );
 }
 

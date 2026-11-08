@@ -2,7 +2,8 @@ import ClientCard from "../components/cards/ClientCard.jsx";
 import GlowOrb from "../components/common/GlowOrb.jsx";
 import SectionTitle from "../components/common/SectionTitle.jsx";
 import PageSection from "../components/layout/PageSection.jsx";
-import Carousel from "../components/ui/Carousel.jsx";
+import Carousel from "../components/react-bits/Carousel.jsx";
+import AnimatedContent from "../components/react-bits/AnimatedContent.jsx";
 import { clients } from "../data/portfolio.js";
 
 export default function ClientsSection() {
@@ -25,13 +26,24 @@ export default function ClientsSection() {
         />
         <SectionTitle>Clientes</SectionTitle>
 
-        <Carousel
-          mode="single"
-          autoPlay={false}
-          items={clients.map((client) => (
-            <ClientCard key={client.clientName} {...client} />
-          ))}
-        />
+        <AnimatedContent distance={32} className="flex justify-center">
+          <Carousel
+            label="Testimonios de clientes"
+            className="clients-carousel"
+            baseWidth={980}
+            aspectRatio={2.5}
+            autoHeight="max"
+            effect="tilt"
+            indicator="dots"
+            arrows
+            loop
+            autoplay={false}
+            radius={24}
+            items={clients.map((client) => (
+              <ClientCard key={client.clientName} {...client} />
+            ))}
+          />
+        </AnimatedContent>
       </div>
     </PageSection>
   );

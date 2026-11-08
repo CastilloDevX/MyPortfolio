@@ -1,24 +1,28 @@
-import { createElement } from "react";
-import useScrollReveal from "../../hooks/useScrollReveal.js";
+import AnimatedContent from "../react-bits/AnimatedContent.jsx";
 
+// Preserve existing layout and millisecond delays while using React Bits throughout.
 export default function ScrollReveal({
-  as: Tag = "div",
+  as = "div",
   children,
   className = "",
   variant = "text",
   delay = 0,
 }) {
-  const { ref, isVisible } = useScrollReveal({
-    threshold: variant === "carousel" ? 0.12 : 0.18,
-  });
+  const horizontal = variant === "media-left" || variant === "media-right";
 
-  return createElement(
-    Tag,
-    {
-      ref,
-      className: `scroll-reveal scroll-reveal--${variant} ${isVisible ? "is-visible" : ""} ${className}`,
-      style: { transitionDelay: `${delay}ms` },
-    },
-    children
+  return (
+    <AnimatedContent
+      as={as}
+      className={className}
+      distance={horizontal ? 44 : variant === "carousel" ? 24 : 36}
+      direction={horizontal ? "horizontal" : "vertical"}
+      reverse={variant === "media-left"}
+      duration={0.8}
+      ease="power3.out"
+      threshold={0.1}
+      delay={delay / 1000}
+    >
+      {children}
+    </AnimatedContent>
   );
 }
