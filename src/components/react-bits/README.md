@@ -27,3 +27,10 @@ Local adaptations:
   custom card and keep navigation stationary between testimonials. `--carousel-min-height` remains available
   for fixed-ratio cards. Hugeicons dependencies are installed through npm.
   Ref updates run in layout effects; reduced-motion changes are handled live.
+
+- Backgrounds/SoftAurora: https://reactbits.dev/c/backgrounds/soft-aurora.
+  Used only behind Contact with the portfolio's violet and blue, no extra
+  dependencies. Settings refs update in a layout effect. Reduced motion renders
+  a static frame and responds to preference changes; animation pauses offscreen.
+  A CSS glow remains available when WebGL2 is unavailable. The canvas does not
+  intercept the contact links or form controls.
