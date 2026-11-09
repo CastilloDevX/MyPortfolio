@@ -60,7 +60,7 @@ import imKingPreview from "../assets/images/previews/ImKing.png";
 import electrorbitPreview from "../assets/images/previews/Electrorbit.png"
 import saludPlusPreview from "../assets/images/previews/SaludPlus.png"
 import beesMathPreview from "../assets/images/previews/BeesMath.png"
-import eduCampPreview from "../assets/images/previews/EduCamp.png"
+import eduCampPreview from "../assets/images/previews/EduCamp.webp"
 import quickCoinsPreview from "../assets/images/previews/QuickCoins.png";
 import canutoPreview from "../assets/images/previews/Canuto.png";
 import airBreyPreview from "../assets/images/previews/AirBrey.png";
