@@ -72,6 +72,7 @@ export function createContactHandler({ env = process.env, fetchImpl = fetch } = 
       });
       const result = await response.json().catch(() => null);
       // Never return provider errors, credentials or visitor data to the client.
+      if (!response.ok || !result?.id) console.error('Resend error', response.status, result?.name, result?.message);
       if (!response.ok || !result?.id) throw fail(502, 'No se pudo enviar el mensaje. Inténtalo de nuevo o escríbeme directamente por correo.');
       return respond(res, 200, { ok: true });
     } catch (error) {
